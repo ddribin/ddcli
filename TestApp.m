@@ -26,7 +26,6 @@
     printf("  -f, --foo FOO                 Use foo with FOO\n");
     printf("  -b, --bar[=BAR]               Use bar with BAR\n");
     printf("      --long-opt                Enable long option\n");
-    printf("      --other-opt VALUE         Set other option to VALUE\n");
     printf("  -v, --verbose                 Increase verbosity\n");
     printf("  -h, --help                    Display this help and exit\n");
     printf("\n");
