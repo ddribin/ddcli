@@ -13,9 +13,6 @@
 
 @protocol DDCliApplicationDelegate <NSObject>
 
-- (void) application: (DDCliApplication *) app
-          printUsage: (FILE *) stream;
-
 - (int) application: (DDCliApplication *) app
    runWithArguments: (NSArray *) arguments;
 
@@ -23,7 +20,6 @@
     willParseOptions: (DDGetoptLong *) options;
 
 @end
-
 
 @interface DDCliApplication : NSObject
 {

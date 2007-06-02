@@ -51,7 +51,6 @@ DDCliApplication * DDCliApp = nil;
         NSArray * arguments = [options processOptions];
         if (arguments == nil)
         {
-            [delegate application: self printUsage: stderr];
             return 1;
         }
 
@@ -73,6 +72,11 @@ DDCliApplication * DDCliApp = nil;
     }
     
     return result;
+}
+
+- (NSString *) description;
+{
+    return [self name];
 }
 
 @end

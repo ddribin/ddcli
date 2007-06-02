@@ -16,6 +16,11 @@
 - (struct option *) firstOption;
 - (struct option *) currentOption;
 - (void) addOption;
+- (NSString *) errorOption: (NSString *) option;
+- (void) handleMissingArgument: (NSString *) option
+                       command: (NSString *) command;
+- (void) handleArgumentNotRecognized: (NSString *) option
+                             command: (NSString *) command;
 
 @end
 
@@ -39,6 +44,7 @@
     mCurrentOption = 0;
     mUtf8Data = [[NSMutableArray alloc] init];
     mOptionString = [[NSMutableString alloc] init];
+    [mOptionString appendString: @":"];
     mOptionInfoMap = [[NSMutableDictionary alloc] init];
     
     return self;
@@ -126,6 +132,7 @@
         NSString * argument = [arguments objectAtIndex: i];
         argv[i] = (char *) [argument UTF8String];
     }
+    argv[i] = 0;
     
     // Make sure list is NULL terminated
     struct option * option = [self currentOption];
@@ -135,14 +142,32 @@
     option->val = 0;
     
     const char * optionString = [mOptionString UTF8String];
+    struct option * options = [self firstOption];
     int ch;
-    while ((ch = getopt_long(argc, argv, optionString, [self firstOption], NULL)) != -1)
+    opterr = 1;
+    
+    int longOptionIndex = -1;
+    while ((ch = getopt_long(argc, argv, optionString, options, &longOptionIndex)) != -1)
     {
+        NSString * last_argv = [NSString stringWithUTF8String: argv[optind-1]];
+        if (ch == ':')
+        {
+            [self handleMissingArgument: last_argv command: command];
+            return nil;
+        }
+        else if (ch == '?')
+        {
+            [self handleArgumentNotRecognized: last_argv command: command];
+            return nil;
+        }
+        
         NSString * nsoptarg = nil;
         if (optarg != NULL)
             nsoptarg = [NSString stringWithUTF8String: optarg];
         
         NSArray * optionInfo = [mOptionInfoMap objectForKey: [NSNumber numberWithInt: ch]];
+        NSAssert(optionInfo != nil, @"optionInfo should not be nil");
+
         if (optionInfo != nil)
         {
             NSString * key = [optionInfo objectAtIndex: 0];
@@ -151,11 +176,6 @@
                 [mTarget setValue: [NSNumber numberWithBool: YES] forKey: key];
             else
                 [mTarget setValue: nsoptarg forKey: key];
-        }
-        else
-        {
-            ddfprintf(stderr, @"Try `%@ --help` for more information.\n", command);
-            return nil;
         }
     }
     
@@ -200,6 +220,47 @@
 {
     [mOptionsData increaseLengthBy: sizeof(struct option)];
     mCurrentOption++;
+}
+
+- (NSString *) errorOption: (NSString *) option;
+{
+    if (![option hasPrefix: @"--"])
+        return [NSString stringWithFormat: @"%c", optopt];
+    else
+        return option;
+}
+
+- (void) handleMissingArgument: (NSString *) option
+                       command: (NSString *) command;
+{
+    option = [self errorOption: option];
+    
+    if ([mTarget respondsToSelector: @selector(optionIsMissingArgument:)])
+    {
+        [mTarget optionIsMissingArgument: option];
+    }
+    else
+    {
+        ddfprintf(stderr, @"%@: option `%@' requires an argument\n",
+                  command, option);
+        ddfprintf(stderr, @"Try `%@ --help` for more information.\n", command);
+    }
+}
+
+- (void) handleArgumentNotRecognized: (NSString *) option
+                             command: (NSString *) command;
+{
+    option = [self errorOption: option];
+    if ([mTarget respondsToSelector: @selector(optionIsNotRecognized:)])
+    {
+        [mTarget optionIsNotRecognized: option];
+    }
+    else
+    {
+        ddfprintf(stderr, @"%@: unrecognized option `%@'\n",
+                  command, option);
+        ddfprintf(stderr, @"Try `%@ --help` for more information.\n", command);
+    }
 }
 
 @end

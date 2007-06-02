@@ -56,3 +56,10 @@ typedef struct
                                   command: (NSString *) command;
 
 @end
+
+@interface NSObject (DDGetoptLong)
+
+- (void) optionIsNotRecognized: (NSString *) option;
+- (void) optionIsMissingArgument: (NSString *) option;
+
+@end
