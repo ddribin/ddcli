@@ -19,9 +19,14 @@
         _verbosity--;
 }
 
+- (void) printUsage: (FILE *) stream;
+{
+    ddfprintf(stream, @"%@: Usage [OPTIONS] <argument> [...]\n", DDCliApp);
+}
+
 - (void) printHelp;
 {
-    ddprintf(@"%@: Usage [OPTIONS] <arguments> ...\n", DDCliApp);
+    [self printUsage: stdout];
     printf("\n");
     printf("  -f, --foo FOO                 Use foo with FOO\n");
     printf("  -b, --bar[=BAR]               Use bar with BAR\n");
@@ -30,7 +35,6 @@
     printf("  -h, --help                    Display this help and exit\n");
     printf("\n");
     printf("A test application for DDCommandLineInterface.\n");
-    printf("\n");
 }
 
 - (void) application: (DDCliApplication *) app
@@ -56,6 +60,15 @@
     {
         [self printHelp];
         return 0;
+    }
+    
+    if ([arguments count] != 1)
+    {
+        ddfprintf(stderr, @"%@: At least one argument is required\n", DDCliApp);
+        [self printUsage: stderr];
+        ddfprintf(stderr, @"Try `%@ --help' for more information.\n",
+                  DDCliApp);
+        return 1;
     }
     
     ddprintf(@"foo: %@, bar: %@, longOpt: %@, verbosity: %d\n",

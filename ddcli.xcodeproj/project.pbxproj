@@ -52,7 +52,7 @@
 		55CCE46F0C11C58F00FA06C6 /* DDGetoptLong.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLong.m; sourceTree = "<group>"; };
 		55CCE4770C11C5C200FA06C6 /* TestApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestApp.h; sourceTree = "<group>"; };
 		55CCE4780C11C5C200FA06C6 /* TestApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestApp.m; sourceTree = "<group>"; };
-		8DD76FA10486AA7600D96B5E /* ddcli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ddcli; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76FA10486AA7600D96B5E /* ddcli */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = ddcli; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* ddcli.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ddcli.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
