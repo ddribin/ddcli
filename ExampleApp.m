@@ -1,15 +1,7 @@
-//
-//  TestApp.m
-//  ddcli
-//
-//  Created by Dave Dribin on 6/2/07.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
-//
-
-#import "TestApp.h"
+#import "ExampleApp.h"
 
 
-@implementation TestApp
+@implementation ExampleApp
 
 - (void) setVerbose: (BOOL) verbose;
 {

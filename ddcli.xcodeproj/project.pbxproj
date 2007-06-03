@@ -6,20 +6,71 @@
 	objectVersion = 42;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		55CCEA590C13887100FA06C6 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 55CCEA660C13888800FA06C6 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				55CCEA5B0C13887700FA06C6 /* PBXTargetDependency */,
+				55CCEA5D0C13887700FA06C6 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		55CCE4700C11C58F00FA06C6 /* DDCliApplication.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE4690C11C58F00FA06C6 /* DDCliApplication.h */; };
-		55CCE4710C11C58F00FA06C6 /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46A0C11C58F00FA06C6 /* DDCliApplication.m */; };
-		55CCE4720C11C58F00FA06C6 /* DDCliUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE46B0C11C58F00FA06C6 /* DDCliUtil.h */; };
-		55CCE4730C11C58F00FA06C6 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46C0C11C58F00FA06C6 /* DDCliUtil.m */; };
-		55CCE4740C11C58F00FA06C6 /* DDCommandLineInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE46D0C11C58F00FA06C6 /* DDCommandLineInterface.h */; };
-		55CCE4750C11C58F00FA06C6 /* DDGetoptLong.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE46E0C11C58F00FA06C6 /* DDGetoptLong.h */; };
-		55CCE4760C11C58F00FA06C6 /* DDGetoptLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46F0C11C58F00FA06C6 /* DDGetoptLong.m */; };
-		55CCE4790C11C5C200FA06C6 /* TestApp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE4770C11C5C200FA06C6 /* TestApp.h */; };
-		55CCE47A0C11C5C200FA06C6 /* TestApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE4780C11C5C200FA06C6 /* TestApp.m */; };
-		8DD76F9A0486AA7600D96B5E /* ddcli.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* ddcli.m */; settings = {ATTRIBUTES = (); }; };
+		55CCE4790C11C5C200FA06C6 /* ExampleApp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE4770C11C5C200FA06C6 /* ExampleApp.h */; };
+		55CCE47A0C11C5C200FA06C6 /* ExampleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE4780C11C5C200FA06C6 /* ExampleApp.m */; };
+		55CCE9310C137F8E00FA06C6 /* DDCommandLineInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE46D0C11C58F00FA06C6 /* DDCommandLineInterface.h */; };
+		55CCE9320C137F8E00FA06C6 /* DDCliApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE4690C11C58F00FA06C6 /* DDCliApplication.h */; };
+		55CCE9330C137F8E00FA06C6 /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46A0C11C58F00FA06C6 /* DDCliApplication.m */; };
+		55CCE9340C137F8E00FA06C6 /* DDCliUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE46B0C11C58F00FA06C6 /* DDCliUtil.h */; };
+		55CCE9350C137F8E00FA06C6 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46C0C11C58F00FA06C6 /* DDCliUtil.m */; };
+		55CCE9360C137F8E00FA06C6 /* DDGetoptLong.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE46E0C11C58F00FA06C6 /* DDGetoptLong.h */; };
+		55CCE9370C137F8E00FA06C6 /* DDGetoptLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46F0C11C58F00FA06C6 /* DDGetoptLong.m */; };
+		55CCE9380C137F9A00FA06C6 /* libddcli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CCE92E0C137F7D00FA06C6 /* libddcli.a */; };
+		55CCE97C0C1380D800FA06C6 /* SimpleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE97B0C1380D800FA06C6 /* SimpleApp.m */; };
+		55CCE9800C13814F00FA06C6 /* libddcli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CCE92E0C137F7D00FA06C6 /* libddcli.a */; };
+		55CCE9810C13815500FA06C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		55CCEA270C1381E500FA06C6 /* simple.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCEA260C1381E500FA06C6 /* simple.m */; };
+		8DD76F9A0486AA7600D96B5E /* example.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* example.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* ddcli.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* ddcli.1 */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55CCE93B0C137FA300FA06C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55CCE92D0C137F7D00FA06C6 /* ddcli */;
+			remoteInfo = ddcli;
+		};
+		55CCE9FE0C13815900FA06C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55CCE92D0C137F7D00FA06C6 /* ddcli */;
+			remoteInfo = ddcli;
+		};
+		55CCEA5A0C13887700FA06C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E /* example */;
+			remoteInfo = example;
+		};
+		55CCEA5C0C13887700FA06C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55CCE9750C1380C900FA06C6 /* simple */;
+			remoteInfo = simple;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
@@ -29,18 +80,14 @@
 			dstSubfolderSpec = 0;
 			files = (
 				8DD76F9F0486AA7600D96B5E /* ddcli.1 in CopyFiles */,
-				55CCE4700C11C58F00FA06C6 /* DDCliApplication.h in CopyFiles */,
-				55CCE4720C11C58F00FA06C6 /* DDCliUtil.h in CopyFiles */,
-				55CCE4740C11C58F00FA06C6 /* DDCommandLineInterface.h in CopyFiles */,
-				55CCE4750C11C58F00FA06C6 /* DDGetoptLong.h in CopyFiles */,
-				55CCE4790C11C5C200FA06C6 /* TestApp.h in CopyFiles */,
+				55CCE4790C11C5C200FA06C6 /* ExampleApp.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08FB7796FE84155DC02AAC07 /* ddcli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ddcli.m; sourceTree = "<group>"; };
+		08FB7796FE84155DC02AAC07 /* example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = example.m; sourceTree = "<group>"; };
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* ddcli_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ddcli_Prefix.pch; sourceTree = "<group>"; };
 		55CCE4690C11C58F00FA06C6 /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
@@ -50,17 +97,39 @@
 		55CCE46D0C11C58F00FA06C6 /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
 		55CCE46E0C11C58F00FA06C6 /* DDGetoptLong.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDGetoptLong.h; sourceTree = "<group>"; };
 		55CCE46F0C11C58F00FA06C6 /* DDGetoptLong.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLong.m; sourceTree = "<group>"; };
-		55CCE4770C11C5C200FA06C6 /* TestApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestApp.h; sourceTree = "<group>"; };
-		55CCE4780C11C5C200FA06C6 /* TestApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestApp.m; sourceTree = "<group>"; };
-		8DD76FA10486AA7600D96B5E /* ddcli */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = ddcli; sourceTree = BUILT_PRODUCTS_DIR; };
+		55CCE4770C11C5C200FA06C6 /* ExampleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleApp.h; sourceTree = "<group>"; };
+		55CCE4780C11C5C200FA06C6 /* ExampleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleApp.m; sourceTree = "<group>"; };
+		55CCE92E0C137F7D00FA06C6 /* libddcli.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libddcli.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		55CCE9760C1380C900FA06C6 /* simple */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = simple; path = build/Debug/simple; sourceTree = "<group>"; };
+		55CCE97A0C1380D800FA06C6 /* SimpleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleApp.h; sourceTree = "<group>"; };
+		55CCE97B0C1380D800FA06C6 /* SimpleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleApp.m; sourceTree = "<group>"; };
+		55CCEA260C1381E500FA06C6 /* simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = simple.m; sourceTree = "<group>"; };
+		8DD76FA10486AA7600D96B5E /* example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = example; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* ddcli.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ddcli.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		55CCE92C0C137F7D00FA06C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55CCE9740C1380C900FA06C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55CCE9800C13814F00FA06C6 /* libddcli.a in Frameworks */,
+				55CCE9810C13815500FA06C6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55CCE9380C137F9A00FA06C6 /* libddcli.a in Frameworks */,
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,9 +153,12 @@
 			isa = PBXGroup;
 			children = (
 				32A70AAB03705E1F00C91783 /* ddcli_Prefix.pch */,
-				08FB7796FE84155DC02AAC07 /* ddcli.m */,
-				55CCE4770C11C5C200FA06C6 /* TestApp.h */,
-				55CCE4780C11C5C200FA06C6 /* TestApp.m */,
+				08FB7796FE84155DC02AAC07 /* example.m */,
+				55CCE4770C11C5C200FA06C6 /* ExampleApp.h */,
+				55CCE4780C11C5C200FA06C6 /* ExampleApp.m */,
+				55CCEA260C1381E500FA06C6 /* simple.m */,
+				55CCE97A0C1380D800FA06C6 /* SimpleApp.h */,
+				55CCE97B0C1380D800FA06C6 /* SimpleApp.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -102,7 +174,9 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76FA10486AA7600D96B5E /* ddcli */,
+				8DD76FA10486AA7600D96B5E /* example */,
+				55CCE92E0C137F7D00FA06C6 /* libddcli.a */,
+				55CCE9760C1380C900FA06C6 /* simple */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,10 +205,58 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		55CCE92A0C137F7D00FA06C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55CCE9310C137F8E00FA06C6 /* DDCommandLineInterface.h in Headers */,
+				55CCE9320C137F8E00FA06C6 /* DDCliApplication.h in Headers */,
+				55CCE9340C137F8E00FA06C6 /* DDCliUtil.h in Headers */,
+				55CCE9360C137F8E00FA06C6 /* DDGetoptLong.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		8DD76F960486AA7600D96B5E /* ddcli */ = {
+		55CCE92D0C137F7D00FA06C6 /* ddcli */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "ddcli" */;
+			buildConfigurationList = 55CCE9480C137FD100FA06C6 /* Build configuration list for PBXNativeTarget "ddcli" */;
+			buildPhases = (
+				55CCE92A0C137F7D00FA06C6 /* Headers */,
+				55CCE92B0C137F7D00FA06C6 /* Sources */,
+				55CCE92C0C137F7D00FA06C6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ddcli;
+			productName = ddcli;
+			productReference = 55CCE92E0C137F7D00FA06C6 /* libddcli.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		55CCE9750C1380C900FA06C6 /* simple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55CCE97D0C1380D800FA06C6 /* Build configuration list for PBXNativeTarget "simple" */;
+			buildPhases = (
+				55CCE9730C1380C900FA06C6 /* Sources */,
+				55CCE9740C1380C900FA06C6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55CCE9FF0C13815900FA06C6 /* PBXTargetDependency */,
+			);
+			name = simple;
+			productName = simple;
+			productReference = 55CCE9760C1380C900FA06C6 /* simple */;
+			productType = "com.apple.product-type.tool";
+		};
+		8DD76F960486AA7600D96B5E /* example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "example" */;
 			buildPhases = (
 				8DD76F990486AA7600D96B5E /* Sources */,
 				8DD76F9B0486AA7600D96B5E /* Frameworks */,
@@ -143,11 +265,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				55CCE93C0C137FA300FA06C6 /* PBXTargetDependency */,
 			);
-			name = ddcli;
+			name = example;
 			productInstallPath = "$(HOME)/bin";
 			productName = ddcli;
-			productReference = 8DD76FA10486AA7600D96B5E /* ddcli */;
+			productReference = 8DD76FA10486AA7600D96B5E /* example */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -160,25 +283,67 @@
 			mainGroup = 08FB7794FE84155DC02AAC07 /* ddcli */;
 			projectDirPath = "";
 			targets = (
-				8DD76F960486AA7600D96B5E /* ddcli */,
+				55CCEA590C13887100FA06C6 /* All */,
+				8DD76F960486AA7600D96B5E /* example */,
+				55CCE9750C1380C900FA06C6 /* simple */,
+				55CCE92D0C137F7D00FA06C6 /* ddcli */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		55CCE92B0C137F7D00FA06C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55CCE9330C137F8E00FA06C6 /* DDCliApplication.m in Sources */,
+				55CCE9350C137F8E00FA06C6 /* DDCliUtil.m in Sources */,
+				55CCE9370C137F8E00FA06C6 /* DDGetoptLong.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55CCE9730C1380C900FA06C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55CCE97C0C1380D800FA06C6 /* SimpleApp.m in Sources */,
+				55CCEA270C1381E500FA06C6 /* simple.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76F990486AA7600D96B5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD76F9A0486AA7600D96B5E /* ddcli.m in Sources */,
-				55CCE4710C11C58F00FA06C6 /* DDCliApplication.m in Sources */,
-				55CCE4730C11C58F00FA06C6 /* DDCliUtil.m in Sources */,
-				55CCE4760C11C58F00FA06C6 /* DDGetoptLong.m in Sources */,
-				55CCE47A0C11C5C200FA06C6 /* TestApp.m in Sources */,
+				8DD76F9A0486AA7600D96B5E /* example.m in Sources */,
+				55CCE47A0C11C5C200FA06C6 /* ExampleApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55CCE93C0C137FA300FA06C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55CCE92D0C137F7D00FA06C6 /* ddcli */;
+			targetProxy = 55CCE93B0C137FA300FA06C6 /* PBXContainerItemProxy */;
+		};
+		55CCE9FF0C13815900FA06C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55CCE92D0C137F7D00FA06C6 /* ddcli */;
+			targetProxy = 55CCE9FE0C13815900FA06C6 /* PBXContainerItemProxy */;
+		};
+		55CCEA5B0C13887700FA06C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD76F960486AA7600D96B5E /* example */;
+			targetProxy = 55CCEA5A0C13887700FA06C6 /* PBXContainerItemProxy */;
+		};
+		55CCEA5D0C13887700FA06C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55CCE9750C1380C900FA06C6 /* simple */;
+			targetProxy = 55CCEA5C0C13887700FA06C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB927508733DD40010E9CD /* Debug */ = {
@@ -193,7 +358,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ddcli_Prefix.pch;
 				INSTALL_PATH = "$(HOME)/bin";
-				PRODUCT_NAME = ddcli;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = example;
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -211,7 +377,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ddcli_Prefix.pch;
 				INSTALL_PATH = "$(HOME)/bin";
-				PRODUCT_NAME = ddcli;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = example;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -236,10 +403,110 @@
 			};
 			name = Release;
 		};
+		55CCE9490C137FD100FA06C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = ddcli;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		55CCE94A0C137FD100FA06C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = ddcli;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		55CCE97E0C1380D800FA06C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = simple;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		55CCE97F0C1380D800FA06C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = "$(HOME)/bin";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = simple;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		55CCEA670C13888800FA06C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		55CCEA680C13888800FA06C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "ddcli" */ = {
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB927508733DD40010E9CD /* Debug */,
@@ -253,6 +520,33 @@
 			buildConfigurations = (
 				1DEB927908733DD40010E9CD /* Debug */,
 				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55CCE9480C137FD100FA06C6 /* Build configuration list for PBXNativeTarget "ddcli" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55CCE9490C137FD100FA06C6 /* Debug */,
+				55CCE94A0C137FD100FA06C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55CCE97D0C1380D800FA06C6 /* Build configuration list for PBXNativeTarget "simple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55CCE97E0C1380D800FA06C6 /* Debug */,
+				55CCE97F0C1380D800FA06C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55CCEA660C13888800FA06C6 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55CCEA670C13888800FA06C6 /* Debug */,
+				55CCEA680C13888800FA06C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
