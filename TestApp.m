@@ -62,7 +62,7 @@
         return 0;
     }
     
-    if ([arguments count] != 1)
+    if ([arguments count] < 1)
     {
         ddfprintf(stderr, @"%@: At least one argument is required\n", DDCliApp);
         [self printUsage: stderr];
