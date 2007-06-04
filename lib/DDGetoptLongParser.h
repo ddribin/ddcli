@@ -1,10 +1,26 @@
-//
-//  DDGetoptLong.h
-//  ddcurl
-//
-//  Created by Dave Dribin on 6/1/07.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
-//
+/*
+ * Copyright (c) 2007 Dave Dribin
+ * 
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+ * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #import <Cocoa/Cocoa.h>
 #import <getopt.h>
@@ -30,7 +46,7 @@ typedef enum DDGetoptArgumentOptions
 typedef struct
 {
     /**
-     * The long option without the double dash, "--".  This is required.
+     * The long option without the double dash ("--").  This is required.
      */
     NSString * longOption;
     /** A single character for the short option.  Maybe be null or 0. */
@@ -43,11 +59,12 @@ typedef struct
  * A command line option parser implemented using <a
  * href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man3/getopt_long.3.html">getopt_long(3)</a>.
  * In order to simplify usage, this class drives the option parsing by
- * running the while loop.  When an option is found, Key-Value Coding
- * (KVC) is used to set a key on the target class.  Unless overridden,
- * the key to use is the same as the long option.  The long option is
- * converted to camel case, if needed.  For example the option
- * "long-option" has a default key of "longOption".
+ * running the while loop.  When an option is found, <a
+ * href="http://developer.apple.com/documentation/Cocoa/Conceptual/KeyValueCoding/index.html">Key-Value
+ * Coding</a> (KVC) is used to set a key on the target class.  Unless
+ * overridden, the key to use is the same as the long option.  The
+ * long option is converted to camel case, if needed.  For example the
+ * option "long-option" has a default key of "longOption".
  */
 @interface DDGetoptLongParser : NSObject
 {
@@ -86,7 +103,7 @@ typedef struct
 
 /**
  * Add an option with both long and short options.  The long option
- * should not contain the double dash ('--').  If you do not want a
+ * should not contain the double dash ("--").  If you do not want a
  * short option, set it to the zero or the null character.
  *
  * @param longOption The long option

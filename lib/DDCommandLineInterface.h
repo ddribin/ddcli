@@ -1,10 +1,26 @@
-//
-//  DDCommandLineInterface.h
-//  ddcurl
-//
-//  Created by Dave Dribin on 6/2/07.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
-//
+/*
+ * Copyright (c) 2007 Dave Dribin
+ * 
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+ * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 
 #import <Foundation/Foundation.h>
@@ -18,15 +34,14 @@
  * @mainpage An Objective-C Command Line Helper
  *
  * ddcli is an Objective-C library to help write command line
- * applications.  It simplifies processing command line options and
- * eliminates much of the boiler plate code.  The <a
+ * applications by simplifying processing command line options and
+ * eliminating much of the boiler plate code.  The <a
  * href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man3/getopt_long.3.html">getopt_long(3)</a>
- * function is used to process command options.  <a
+ * function is used to process command options, but the complexity of
+ * using this function is hidden by an Objective-C wrapper.  <a
  * href="http://developer.apple.com/documentation/Cocoa/Conceptual/KeyValueCoding/index.html">Key-Value
- * Coding</a> (KVC) is used to set the options on a target class.  The
- * long option is used as the key.  The value is either YES for
- * options that do not take an argument, or a string for options that
- * do.
+ * Coding</a> (KVC) is used to set the options on a target class.  A
+ * simple example should help make this clear.
  *
  * The main class is DDCliApplication.  You customize its behavior by
  * creating a class that implements the DDCliApplicationDelegate
@@ -72,8 +87,12 @@ Arguments: (the, quick, "brown fox")
 @endverbatim
  *
  * The full source for this simple application can be found on @link
- * simple.m @endlink.  See @link example.m @endlink for a more
- * complex example.
+ * simple.m @endlink.
+ *
+ * Since KVC is used, you can implement a set<option>: method to
+ * customize the behavior for options.  You could use this to store
+ * all instances of an option in an array.  See @link example.m
+ * @endlink for a more complex example.
  *
  * @defgroup functions Functions and Global Variables
  * @defgroup constants Constants
