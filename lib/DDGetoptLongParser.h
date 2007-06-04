@@ -40,13 +40,14 @@ typedef struct
 } DDGetoptOption;
 
 /**
- * An Objective-C interface to getopt_long(3).  In order to simplify
- * usage, this class drives the option parsing by running the while
- * loop.  When an option is found, Key-Value Coding (KVC) is used to
- * set a key on the target class.  Unless overridden, the key to use
- * is the same as the long option.  The long option is converted to
- * camel case, if needed.  For example the option "long-option" has a
- * default key of "longOption".
+ * A command line option parser implemented using <a
+ * href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man3/getopt_long.3.html">getopt_long(3)</a>.
+ * In order to simplify usage, this class drives the option parsing by
+ * running the while loop.  When an option is found, Key-Value Coding
+ * (KVC) is used to set a key on the target class.  Unless overridden,
+ * the key to use is the same as the long option.  The long option is
+ * converted to camel case, if needed.  For example the option
+ * "long-option" has a default key of "longOption".
  */
 @interface DDGetoptLongParser : NSObject
 {

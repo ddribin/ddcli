@@ -15,15 +15,18 @@
 
 
 /**
- * @mainpage ddcli: A Objective-C command line helper.
+ * @mainpage An Objective-C Command Line Helper
  *
  * ddcli is an Objective-C library to help write command line
  * applications.  It simplifies processing command line options and
- * eliminates much of the boiler plate code.  The getopt_long(3)
- * function is used to process command options.  Key-Value Coding
- * (KVC) is used to set the options on a target class.  The long
- * option is used as the key.  The value is either YES for options
- * that do not take an argument, or a string for options that do.
+ * eliminates much of the boiler plate code.  The <a
+ * href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man3/getopt_long.3.html">getopt_long(3)</a>
+ * function is used to process command options.  <a
+ * href="http://developer.apple.com/documentation/Cocoa/Conceptual/KeyValueCoding/index.html">Key-Value
+ * Coding</a> (KVC) is used to set the options on a target class.  The
+ * long option is used as the key.  The value is either YES for
+ * options that do not take an argument, or a string for options that
+ * do.
  *
  * The main class is DDCliApplication.  You customize its behavior by
  * creating a class that implements the DDCliApplicationDelegate
@@ -53,8 +56,10 @@
  *
  * @include runWithArguments.m
  * 
- * The final part that needs implementing is the main function.  The
- * #DDCliAppRunWithClass function makes this a one liner:
+ * This code also uses #ddprintf which works just like printf, except
+ * you can use the %@ format string.  The final part that needs
+ * implementing is the main function.  The #DDCliAppRunWithClass
+ * function makes this a one liner:
  *
  * @include simple.m
  *

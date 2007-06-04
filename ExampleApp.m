@@ -3,12 +3,28 @@
 
 @implementation ExampleApp
 
+- (id) init;
+{
+    self = [super init];
+    if (self == nil)
+        return nil;
+    
+    _includeFiles = [[NSMutableArray alloc] init];
+    
+    return self;
+}
+
 - (void) setVerbose: (BOOL) verbose;
 {
     if (verbose)
         _verbosity++;
     else if (_verbosity > 0)
         _verbosity--;
+}
+
+- (void) setInclude: (NSString *) file;
+{
+    [_includeFiles addObject: file];
 }
 
 - (void) printUsage: (FILE *) stream;
@@ -19,14 +35,21 @@
 - (void) printHelp;
 {
     [self printUsage: stdout];
-    printf("\n");
-    printf("  -f, --foo FOO                 Use foo with FOO\n");
-    printf("  -b, --bar[=BAR]               Use bar with BAR\n");
-    printf("      --long-opt                Enable long option\n");
-    printf("  -v, --verbose                 Increase verbosity\n");
-    printf("  -h, --help                    Display this help and exit\n");
-    printf("\n");
-    printf("A test application for DDCommandLineInterface.\n");
+    printf("\n"
+           "  -f, --foo FOO                 Use foo with FOO\n"
+           "  -I, --include FILE            Include FILE\n"
+           "  -b, --bar[=BAR]               Use bar with BAR\n"
+           "      --long-opt                Enable long option\n"
+           "  -v, --verbose                 Increase verbosity\n"
+           "      --version                 Display version and exit\n"
+           "  -h, --help                    Display this help and exit\n"
+           "\n"
+           "A test application for DDCommandLineInterface.\n");
+}
+
+- (void) printVersion;
+{
+    ddprintf(@"%@ version %s\n", DDCliApp, CURRENT_MARKETING_VERSION);
 }
 
 - (void) application: (DDCliApplication *) app
@@ -36,9 +59,11 @@
     {
         // Long         Short   Argument options
         {@"foo",        'f',    DDGetoptRequiredArgument},
+        {@"include",    'I',    DDGetoptRequiredArgument},
         {@"bar",        'b',    DDGetoptOptionalArgument},
         {@"long-opt",   0,      DDGetoptNoArgument},
         {@"verbose",    'v',    DDGetoptNoArgument},
+        {@"version",    0,      DDGetoptNoArgument},
         {@"help",       'h',    DDGetoptNoArgument},
         {nil,           0,      0},
     };
@@ -54,6 +79,12 @@
         return 0;
     }
     
+    if (_version)
+    {
+        [self printVersion];
+        return 0;
+    }
+    
     if ([arguments count] < 1)
     {
         ddfprintf(stderr, @"%@: At least one argument is required\n", DDCliApp);
@@ -65,6 +96,7 @@
     
     ddprintf(@"foo: %@, bar: %@, longOpt: %@, verbosity: %d\n",
              _foo, _bar, _longOpt, _verbosity);
+    ddprintf(@"Include files: %@\n", _includeFiles);
     ddprintf(@"Arguments: %@\n", arguments);
     return 0;
 }
