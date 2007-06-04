@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class DDCliApplication;
-@class DDGetoptLong;
+@class DDGetoptLongParser;
 
 /**
  * Methods that the DDCliApplication delegate must implement.
@@ -36,7 +36,7 @@
  * @param options The options parser.
  */
 - (void) application: (DDCliApplication *) app
-    willParseOptions: (DDGetoptLong *) options;
+    willParseOptions: (DDGetoptLongParser *) options;
 
 @end
 
@@ -108,21 +108,19 @@ int DDCliAppRunWithClass(Class delegateClass);
 /** @} */
 
 /**
- * @example SimpleApp
+ * @example simple.m
  *
  * This is a very simple example application.
  *
  * @include SimpleApp.h
  * @include SimpleApp.m
- * @include simple.m
  */
 
 /**
- * @example ExampleApp
+ * @example example.m
  *
  * This is a slighly more complexe example application.
  *
  * @include ExampleApp.h
  * @include ExampleApp.m
- * @include example.m
  */

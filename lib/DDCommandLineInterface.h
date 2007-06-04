@@ -6,6 +6,14 @@
 //  Copyright 2007 __MyCompanyName__. All rights reserved.
 //
 
+
+#import <Foundation/Foundation.h>
+
+#import "DDGetoptLongParser.h"
+#import "DDCliApplication.h"
+#import "DDCliUtil.h"
+
+
 /**
  * @mainpage ddcli: A Objective-C command line helper.
  *
@@ -17,16 +25,16 @@
  * option is used as the key.  The value is either YES for options
  * that do not take an argument, or a string for options that do.
  *
- * The main class is DDCliApplication.  You customize it's behavior by
+ * The main class is DDCliApplication.  You customize its behavior by
  * creating a class that implements the DDCliApplicationDelegate
  * protocol.  This protocol has two methods that must be implemented:
  *
  * @include appDelegate.m
  *
  * The first method allows the delegate to add options to the parser.
- * The second method is the main entry point to the command line
- * applications.  The simplest way to add options is to use the
- * DDGetoptLong.addOptionsFromTable: method:
+ * The second method is the main entry point for the command line
+ * application.  The simplest way to add options is to use the
+ * DDGetoptLongParser.addOptionsFromTable: method:
  *
  * @include willParseOptions.m
  *
@@ -59,18 +67,9 @@ Arguments: (the, quick, "brown fox")
 @endverbatim
  *
  * The full source for this simple application can be found on @link
- * SimpleApp @endlink.  See @link ExampleApp @endlink for a more
+ * simple.m @endlink.  See @link example.m @endlink for a more
  * complex example.
  *
+ * @defgroup functions Functions and Global Variables
+ * @defgroup constants Constants
  */
-
-/**
- * @defgroup functions Functions and global variables
- * @defgroup enum Enumerations
- */
-
-#import <Foundation/Foundation.h>
-
-#import "DDGetoptLong.h"
-#import "DDCliApplication.h"
-#import "DDCliUtil.h"

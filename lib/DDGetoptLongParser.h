@@ -12,7 +12,7 @@
 
 /**
  * Argument options.
- * @ingroup enum
+ * @ingroup constants
  */
 typedef enum DDGetoptArgumentOptions
 {
@@ -29,21 +29,26 @@ typedef enum DDGetoptArgumentOptions
  */
 typedef struct
 {
+    /**
+     * The long option without the double dash, "--".  This is required.
+     */
     NSString * longOption;
+    /** A single character for the short option.  Maybe be null or 0. */
     int shortOption;
+    /** Argument options for this option. */
     DDGetoptArgumentOptions argumentOptions;
 } DDGetoptOption;
 
 /**
  * An Objective-C interface to getopt_long(3).  In order to simplify
- * usage, this class drives the option processing running the while
+ * usage, this class drives the option parsing by running the while
  * loop.  When an option is found, Key-Value Coding (KVC) is used to
  * set a key on the target class.  Unless overridden, the key to use
  * is the same as the long option.  The long option is converted to
  * camel case, if needed.  For example the option "long-option" has a
  * default key of "longOption".
  */
-@interface DDGetoptLong : NSObject
+@interface DDGetoptLongParser : NSObject
 {
     @private
     id mTarget;
@@ -60,7 +65,7 @@ typedef struct
  *
  * @param target Object that receives target messages.
  */
-+ (DDGetoptLong *) optionsWithTarget: (id) target;
++ (DDGetoptLongParser *) optionsWithTarget: (id) target;
 
 /**
  * Create an option parser with the given target.
@@ -105,22 +110,22 @@ typedef struct
        argumentOptions: (DDGetoptArgumentOptions) argumentOptions;
 
 /**
- * Process the options using the arguments and command name from
+ * Parse the options using the arguments and command name from
  * NSProcessInfo.
  *
- * @return Arguments left over after option processing or <code>nil</code>
+ * @return Arguments left over after option parsing or <code>nil</code>
  */
-- (NSArray *) processOptions;
+- (NSArray *) parseOptions;
 
 /**
- * Process the options.
+ * Parse the options on an array of arguments.
  *
  * @param arguments Array of command line arguments
  * @param command Command name to use for error messages.
  * @return Arguments left over after option processing or <code>nil</code>
  */
-- (NSArray *) processOptionsWithArguments: (NSArray *) arguments
-                                  command: (NSString *) command;
+- (NSArray *) parseOptionsWithArguments: (NSArray *) arguments
+                                command: (NSString *) command;
 
 @end
 

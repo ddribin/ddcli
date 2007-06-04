@@ -30,7 +30,7 @@
 }
 
 - (void) application: (DDCliApplication *) app
-    willParseOptions: (DDGetoptLong *) options;
+    willParseOptions: (DDGetoptLongParser *) optionsParser;
 {
     DDGetoptOption optionTable[] = 
     {
@@ -42,7 +42,7 @@
         {@"help",       'h',    DDGetoptNoArgument},
         {nil,           0,      0},
     };
-    [options addOptionsFromTable: optionTable];
+    [optionsParser addOptionsFromTable: optionTable];
 }
 
 - (int) application: (DDCliApplication *) app

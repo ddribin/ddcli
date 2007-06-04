@@ -29,13 +29,13 @@
 		55CCE9330C137F8E00FA06C6 /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46A0C11C58F00FA06C6 /* DDCliApplication.m */; };
 		55CCE9340C137F8E00FA06C6 /* DDCliUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE46B0C11C58F00FA06C6 /* DDCliUtil.h */; };
 		55CCE9350C137F8E00FA06C6 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46C0C11C58F00FA06C6 /* DDCliUtil.m */; };
-		55CCE9360C137F8E00FA06C6 /* DDGetoptLong.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE46E0C11C58F00FA06C6 /* DDGetoptLong.h */; };
-		55CCE9370C137F8E00FA06C6 /* DDGetoptLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46F0C11C58F00FA06C6 /* DDGetoptLong.m */; };
+		55CCE9370C137F8E00FA06C6 /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE46F0C11C58F00FA06C6 /* DDGetoptLongParser.m */; };
 		55CCE9380C137F9A00FA06C6 /* libddcli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CCE92E0C137F7D00FA06C6 /* libddcli.a */; };
 		55CCE97C0C1380D800FA06C6 /* SimpleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE97B0C1380D800FA06C6 /* SimpleApp.m */; };
 		55CCE9800C13814F00FA06C6 /* libddcli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CCE92E0C137F7D00FA06C6 /* libddcli.a */; };
 		55CCE9810C13815500FA06C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		55CCEA270C1381E500FA06C6 /* simple.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCEA260C1381E500FA06C6 /* simple.m */; };
+		55CCEA870C138BE900FA06C6 /* DDGetoptLongParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */; };
 		8DD76F9A0486AA7600D96B5E /* example.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* example.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* ddcli.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* ddcli.1 */; };
@@ -95,8 +95,7 @@
 		55CCE46B0C11C58F00FA06C6 /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
 		55CCE46C0C11C58F00FA06C6 /* DDCliUtil.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DDCliUtil.m; sourceTree = "<group>"; };
 		55CCE46D0C11C58F00FA06C6 /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
-		55CCE46E0C11C58F00FA06C6 /* DDGetoptLong.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDGetoptLong.h; sourceTree = "<group>"; };
-		55CCE46F0C11C58F00FA06C6 /* DDGetoptLong.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLong.m; sourceTree = "<group>"; };
+		55CCE46F0C11C58F00FA06C6 /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
 		55CCE4770C11C5C200FA06C6 /* ExampleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleApp.h; sourceTree = "<group>"; };
 		55CCE4780C11C5C200FA06C6 /* ExampleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleApp.m; sourceTree = "<group>"; };
 		55CCE92E0C137F7D00FA06C6 /* libddcli.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libddcli.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +103,7 @@
 		55CCE97A0C1380D800FA06C6 /* SimpleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleApp.h; sourceTree = "<group>"; };
 		55CCE97B0C1380D800FA06C6 /* SimpleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleApp.m; sourceTree = "<group>"; };
 		55CCEA260C1381E500FA06C6 /* simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = simple.m; sourceTree = "<group>"; };
+		55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = example; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* ddcli.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ddcli.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,8 +189,8 @@
 				55CCE46A0C11C58F00FA06C6 /* DDCliApplication.m */,
 				55CCE46B0C11C58F00FA06C6 /* DDCliUtil.h */,
 				55CCE46C0C11C58F00FA06C6 /* DDCliUtil.m */,
-				55CCE46E0C11C58F00FA06C6 /* DDGetoptLong.h */,
-				55CCE46F0C11C58F00FA06C6 /* DDGetoptLong.m */,
+				55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */,
+				55CCE46F0C11C58F00FA06C6 /* DDGetoptLongParser.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 				55CCE9310C137F8E00FA06C6 /* DDCommandLineInterface.h in Headers */,
 				55CCE9320C137F8E00FA06C6 /* DDCliApplication.h in Headers */,
 				55CCE9340C137F8E00FA06C6 /* DDCliUtil.h in Headers */,
-				55CCE9360C137F8E00FA06C6 /* DDGetoptLong.h in Headers */,
+				55CCEA870C138BE900FA06C6 /* DDGetoptLongParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +298,7 @@
 			files = (
 				55CCE9330C137F8E00FA06C6 /* DDCliApplication.m in Sources */,
 				55CCE9350C137F8E00FA06C6 /* DDCliUtil.m in Sources */,
-				55CCE9370C137F8E00FA06C6 /* DDGetoptLong.m in Sources */,
+				55CCE9370C137F8E00FA06C6 /* DDGetoptLongParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

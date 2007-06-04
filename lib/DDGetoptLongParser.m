@@ -6,11 +6,11 @@
 //  Copyright 2007 __MyCompanyName__. All rights reserved.
 //
 
-#import "DDGetoptLong.h"
+#import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
 
 
-@interface DDGetoptLong (Private)
+@interface DDGetoptLongParser (Private)
 
 - (NSString *) optionToKey: (NSString *) option;
 - (struct option *) firstOption;
@@ -24,9 +24,9 @@
 
 @end
 
-@implementation DDGetoptLong
+@implementation DDGetoptLongParser
 
-+ (DDGetoptLong *) optionsWithTarget: (id) target;
++ (DDGetoptLongParser *) optionsWithTarget: (id) target;
 {
     return [[[self alloc] initWithTarget: target] autorelease];
 }
@@ -113,16 +113,16 @@
                     key: key argumentOptions: argumentOptions];
 }
 
-- (NSArray *) processOptions;
+- (NSArray *) parseOptions;
 {
     NSProcessInfo * processInfo = [NSProcessInfo processInfo];
     NSArray * arguments = [processInfo arguments];
     NSString * command = [processInfo processName];
-    return [self processOptionsWithArguments: arguments command: command];
+    return [self parseOptionsWithArguments: arguments command: command];
 }
 
-- (NSArray *) processOptionsWithArguments: (NSArray *) arguments
-                                  command: (NSString *) command;
+- (NSArray *) parseOptionsWithArguments: (NSArray *) arguments
+                                command: (NSString *) command;
 {
     int argc = [arguments count];
     char ** argv = alloca(sizeof(char *) * argc);
@@ -185,7 +185,7 @@
 
 @end
 
-@implementation DDGetoptLong (Private)
+@implementation DDGetoptLongParser (Private)
 
 - (NSString *) optionToKey: (NSString *) option;
 {

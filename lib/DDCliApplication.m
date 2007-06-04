@@ -7,7 +7,7 @@
 //
 
 #import "DDCliApplication.h"
-#import "DDGetoptLong.h"
+#import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
 
 DDCliApplication * DDCliApp = nil;
@@ -46,9 +46,10 @@ DDCliApplication * DDCliApp = nil;
     {
         delegate = [[delegateClass alloc] init];
 
-        DDGetoptLong * options = [DDGetoptLong optionsWithTarget: delegate];
-        [delegate application: self willParseOptions: options];
-        NSArray * arguments = [options processOptions];
+        DDGetoptLongParser * optionsParser =
+            [DDGetoptLongParser optionsWithTarget: delegate];
+        [delegate application: self willParseOptions: optionsParser];
+        NSArray * arguments = [optionsParser parseOptions];
         if (arguments == nil)
         {
             return 1;
