@@ -461,7 +461,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = simple;
-				ZERO_LINK = YES;
+				ZERO_LINK = NO;
 			};
 			name = Debug;
 		};
