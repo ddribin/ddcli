@@ -31,14 +31,15 @@
 
 
 /**
- * @mainpage An Objective-C Command Line Helper
+ * @mainpage ddcli: An Objective-C Command Line Helper
  *
  * ddcli is an Objective-C library to help write command line
- * applications by simplifying processing command line options and
+ * applications by simplifying parsing command line options and
  * eliminating much of the boiler plate code.  The <a
  * href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man3/getopt_long.3.html">getopt_long(3)</a>
- * function is used to process command options, but the complexity of
- * using this function is hidden by an Objective-C wrapper.  <a
+ * function is used to parse command options, but the complexity of
+ * using this function is hidden by an Objective-C wrapper
+ * (DDGetoptLongParser).  <a
  * href="http://developer.apple.com/documentation/Cocoa/Conceptual/KeyValueCoding/index.html">Key-Value
  * Coding</a> (KVC) is used to set the options on a target class.  A
  * simple example should help make this clear.
@@ -78,21 +79,30 @@
  *
  * @include simple.m
  *
- * Here is a sample run from this program:
+ * Here are a few sample runs of this program:
  *
  * @verbatim
+% simple
+Output: (null), help: 0
+Arguments: ()
+
 % simple -o output.txt the quick "brown fox"
 Output: output.txt, help: 0
 Arguments: (the, quick, "brown fox")
+
+% simple -h
+Output: (null), help: 1
+Arguments: ()
 @endverbatim
  *
  * The full source for this simple application can be found on @link
- * simple.m @endlink.
+ * simple.m @endlink example.
  *
  * Since KVC is used, you can implement a set<option>: method to
- * customize the behavior for options.  You could use this to store
- * all instances of an option in an array.  See @link example.m
- * @endlink for a more complex example.
+ * customize the behavior when options are parsed.  For example, you
+ * could use this to store all occurences of an option in an array.
+ * See @link example.m @endlink for a more complex example that uses
+ * this technique.
  *
  * @defgroup functions Functions and Global Variables
  * @defgroup constants Constants

@@ -65,6 +65,8 @@ typedef struct
  * overridden, the key to use is the same as the long option.  The
  * long option is converted to camel case, if needed.  For example the
  * option "long-option" has a default key of "longOption".
+ *
+ * @sa DDGetoptOption
  */
 @interface DDGetoptLongParser : NSObject
 {
