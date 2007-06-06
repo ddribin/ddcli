@@ -49,10 +49,10 @@
  * options parser.
  *
  * @param app The corresponding application instance
- * @param options The options parser.
+ * @param optionParser The option parser.
  */
 - (void) application: (DDCliApplication *) app
-    willParseOptions: (DDGetoptLongParser *) options;
+    willParseOptions: (DDGetoptLongParser *) optionParser;
 
 @end
 
@@ -135,7 +135,43 @@ int DDCliAppRunWithClass(Class delegateClass);
 /**
  * @example example.m
  *
- * This is a slighly more complexe example application.
+ * This is a slighly more complexe example application.  Here are a
+ * few sample runs of this program:
+ *
+ * @verbatim
+% example                           
+example: At least one argument is required
+example: Usage [OPTIONS] <argument> [...]
+Try `example --help' for more information.
+@endverbatim
+@verbatim
+% example --help         
+example: Usage [OPTIONS] <argument> [...]
+
+  -f, --foo FOO                 Use foo with FOO
+  -I, --include FILE            Include FILE
+  -b, --bar[=BAR]               Use bar with BAR
+      --long-opt                Enable long option
+  -v, --verbose                 Increase verbosity
+      --version                 Display version and exit
+  -h, --help                    Display this help and exit
+
+A test application for DDCommandLineInterface.
+@endverbatim
+@verbatim
+% example --foo bar --long-opt one.c
+foo: bar, bar: (null), longOpt: 1, verbosity: 0
+Include directories: ()
+Arguments: ("one.c")
+@endverbatim
+@verbatim
+% example -vvv -I/usr/include -I/usr/local/include one.c two.c
+foo: (null), bar: (null), longOpt: (null), verbosity: 3
+Include directories: ("/usr/include", "/usr/local/include")
+Arguments: ("one.c", "two.c")
+@endverbatim
+ *
+ * Here is the source code:
  *
  * @include ExampleApp.h
  * @include ExampleApp.m

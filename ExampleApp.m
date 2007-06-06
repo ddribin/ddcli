@@ -9,7 +9,7 @@
     if (self == nil)
         return nil;
     
-    _includeFiles = [[NSMutableArray alloc] init];
+    _includeDirectories = [[NSMutableArray alloc] init];
     
     return self;
 }
@@ -24,7 +24,7 @@
 
 - (void) setInclude: (NSString *) file;
 {
-    [_includeFiles addObject: file];
+    [_includeDirectories addObject: file];
 }
 
 - (void) printUsage: (FILE *) stream;
@@ -96,7 +96,7 @@
     
     ddprintf(@"foo: %@, bar: %@, longOpt: %@, verbosity: %d\n",
              _foo, _bar, _longOpt, _verbosity);
-    ddprintf(@"Include files: %@\n", _includeFiles);
+    ddprintf(@"Include directories: %@\n", _includeDirectories);
     ddprintf(@"Arguments: %@\n", arguments);
     return 0;
 }

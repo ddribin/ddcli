@@ -4,7 +4,7 @@
 @interface ExampleApp : NSObject <DDCliApplicationDelegate>
 {
     NSString * _foo;
-    NSMutableArray * _includeFiles;
+    NSMutableArray * _includeDirectories;
     NSString * _bar;
     NSString * _longOpt;
     int _verbosity;

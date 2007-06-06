@@ -85,11 +85,13 @@
 % simple
 Output: (null), help: 0
 Arguments: ()
-
+@endverbatim
+@verbatim
 % simple -o output.txt the quick "brown fox"
 Output: output.txt, help: 0
 Arguments: (the, quick, "brown fox")
-
+@endverbatim
+@verbatim
 % simple -h
 Output: (null), help: 1
 Arguments: ()

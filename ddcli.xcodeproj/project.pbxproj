@@ -46,28 +46,28 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55CCE92D0C137F7D00FA06C6 /* ddcli */;
+			remoteGlobalIDString = 55CCE92D0C137F7D00FA06C6;
 			remoteInfo = ddcli;
 		};
 		55CCE9FE0C13815900FA06C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55CCE92D0C137F7D00FA06C6 /* ddcli */;
+			remoteGlobalIDString = 55CCE92D0C137F7D00FA06C6;
 			remoteInfo = ddcli;
 		};
 		55CCEA5A0C13887700FA06C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DD76F960486AA7600D96B5E /* example */;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E;
 			remoteInfo = example;
 		};
 		55CCEA5C0C13887700FA06C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55CCE9750C1380C900FA06C6 /* simple */;
+			remoteGlobalIDString = 55CCE9750C1380C900FA06C6;
 			remoteInfo = simple;
 		};
 /* End PBXContainerItemProxy section */
