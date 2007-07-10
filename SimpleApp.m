@@ -5,6 +5,7 @@
 - (void) application: (DDCliApplication *) app
     willParseOptions: (DDGetoptLongParser *) optionsParser;
 {
+    [optionsParser setGetoptLongOnly: YES];
     DDGetoptOption optionTable[] = 
     {
         // Long         Short   Argument options

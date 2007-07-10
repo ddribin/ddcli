@@ -26,6 +26,10 @@
 #import <getopt.h>
 #import <libgen.h>
 
+/* Function pointer to getopt_long() or getopt_long_only() */
+typedef int (*DDGetoptFunction)(int, char * const *, const char *,
+                                const struct option *, int *);
+
 /**
  * Argument options.
  * @ingroup constants
@@ -78,6 +82,7 @@ typedef struct
     NSMutableData * mOptionsData;
     int mCurrentOption;
     NSMutableArray * mUtf8Data;
+    DDGetoptFunction mGetoptFunction;
 }
 
 /**
@@ -93,6 +98,14 @@ typedef struct
  * @param target Object that receives target messages.
  */
 - (id) initWithTarget: (id) target;
+
+/**
+ * If set to YES, parses options with getopt_long_only() instead of
+ * getopt_long().
+ *
+ * @param getoptLongOnly YES means parse with getopt_long_only()
+ */
+- (void) setGetoptLongOnly: (BOOL) getoptLongOnly;
 
 /**
  * Add all options from a null terminated option table.  The final

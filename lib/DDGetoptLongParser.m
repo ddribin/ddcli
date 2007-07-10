@@ -62,8 +62,17 @@
     mOptionString = [[NSMutableString alloc] init];
     [mOptionString appendString: @":"];
     mOptionInfoMap = [[NSMutableDictionary alloc] init];
+    mGetoptFunction = getopt_long;
     
     return self;
+}
+
+- (void) setGetoptLongOnly: (BOOL) getoptLongOnly;
+{
+    if (getoptLongOnly)
+        mGetoptFunction = getopt_long_only;
+    else
+        mGetoptFunction = getopt_long;
 }
 
 - (void) addOptionsFromTable: (DDGetoptOption *) optionTable;
@@ -163,7 +172,7 @@
     opterr = 1;
     
     int longOptionIndex = -1;
-    while ((ch = getopt_long(argc, argv, optionString, options, &longOptionIndex)) != -1)
+    while ((ch = mGetoptFunction(argc, argv, optionString, options, &longOptionIndex)) != -1)
     {
         NSString * last_argv = [NSString stringWithUTF8String: argv[optind-1]];
         if (ch == ':')
