@@ -21,7 +21,7 @@
 {
     ddprintf(@"Output: %@, help: %d\n", _output, _help);
     ddprintf(@"Arguments: %@\n", arguments);
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 @end

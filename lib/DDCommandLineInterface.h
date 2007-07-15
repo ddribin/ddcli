@@ -24,6 +24,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import <sysexits.h>
 
 #import "DDGetoptLongParser.h"
 #import "DDCliApplication.h"

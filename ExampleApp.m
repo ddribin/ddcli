@@ -1,6 +1,5 @@
 #import "ExampleApp.h"
 
-
 @implementation ExampleApp
 
 - (id) init;
@@ -28,7 +27,7 @@
     {
         DDCliParseException * e =
             [DDCliParseException parseExceptionWithReason: @"Invalid name"
-                                                 exitCode: 5];
+                                                 exitCode: EX_USAGE];
         @throw e;
     }
     [_includeDirectories addObject: file];
@@ -83,13 +82,13 @@
     if (_help)
     {
         [self printHelp];
-        return 0;
+        return EXIT_SUCCESS;
     }
     
     if (_version)
     {
         [self printVersion];
-        return 0;
+        return EXIT_SUCCESS;
     }
     
     if ([arguments count] < 1)
@@ -98,14 +97,14 @@
         [self printUsage: stderr];
         ddfprintf(stderr, @"Try `%@ --help' for more information.\n",
                   DDCliApp);
-        return 1;
+        return EX_USAGE;
     }
     
     ddprintf(@"foo: %@, bar: %@, longOpt: %@, verbosity: %d\n",
              _foo, _bar, _longOpt, _verbosity);
     ddprintf(@"Include directories: %@\n", _includeDirectories);
     ddprintf(@"Arguments: %@\n", arguments);
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 @end

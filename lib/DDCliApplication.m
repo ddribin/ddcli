@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 
+#import <sysexits.h>
 #import "DDCliApplication.h"
 #import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
@@ -58,7 +59,7 @@ DDCliApplication * DDCliApp = nil;
 - (int) runWithClass: (Class) delegateClass;
 {
     NSObject<DDCliApplicationDelegate> * delegate = nil;
-    int result = 0;
+    int result = EXIT_SUCCESS;
     @try
     {
         delegate = [[delegateClass alloc] init];
@@ -69,7 +70,7 @@ DDCliApplication * DDCliApp = nil;
         NSArray * arguments = [optionsParser parseOptions];
         if (arguments == nil)
         {
-            return 1;
+            return EX_USAGE;
         }
 
         result = [delegate application: self
@@ -83,7 +84,7 @@ DDCliApplication * DDCliApp = nil;
     @catch (NSException * e)
     {
         ddfprintf(stderr, @"Caught: %@: %@\n", [e name], [e description]);
-        result = 2;
+        result = EXIT_FAILURE;
     }
     @finally
     {
