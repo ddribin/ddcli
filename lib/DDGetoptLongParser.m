@@ -249,7 +249,7 @@
 
 - (NSString *) errorOption: (NSString *) option;
 {
-    if (![option hasPrefix: @"--"])
+    if (![option hasPrefix: @"-"])
         return [NSString stringWithFormat: @"%c", optopt];
     else
         return option;
