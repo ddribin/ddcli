@@ -24,6 +24,13 @@
 
 - (void) setInclude: (NSString *) file;
 {
+    if ([file isEqualToString: @"invalid"])
+    {
+        DDCliParseException * e =
+            [DDCliParseException parseExceptionWithReason: @"Invalid name"
+                                                 exitCode: 5];
+        @throw e;
+    }
     [_includeDirectories addObject: file];
 }
 

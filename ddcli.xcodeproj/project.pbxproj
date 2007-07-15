@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		55200F530C4A27FD00018A42 /* DDCliParseException.h in Headers */ = {isa = PBXBuildFile; fileRef = 55200F510C4A27FD00018A42 /* DDCliParseException.h */; };
+		55200F540C4A27FD00018A42 /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 55200F520C4A27FD00018A42 /* DDCliParseException.m */; };
 		55CCE4790C11C5C200FA06C6 /* ExampleApp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE4770C11C5C200FA06C6 /* ExampleApp.h */; };
 		55CCE47A0C11C5C200FA06C6 /* ExampleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE4780C11C5C200FA06C6 /* ExampleApp.m */; };
 		55CCE9310C137F8E00FA06C6 /* DDCommandLineInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE46D0C11C58F00FA06C6 /* DDCommandLineInterface.h */; };
@@ -90,6 +92,8 @@
 		08FB7796FE84155DC02AAC07 /* example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = example.m; sourceTree = "<group>"; };
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* ddcli_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ddcli_Prefix.pch; sourceTree = "<group>"; };
+		55200F510C4A27FD00018A42 /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
+		55200F520C4A27FD00018A42 /* DDCliParseException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliParseException.m; sourceTree = "<group>"; };
 		55CCE4690C11C58F00FA06C6 /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
 		55CCE46A0C11C58F00FA06C6 /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
 		55CCE46B0C11C58F00FA06C6 /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				55CCE46C0C11C58F00FA06C6 /* DDCliUtil.m */,
 				55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */,
 				55CCE46F0C11C58F00FA06C6 /* DDGetoptLongParser.m */,
+				55200F510C4A27FD00018A42 /* DDCliParseException.h */,
+				55200F520C4A27FD00018A42 /* DDCliParseException.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 				55CCE9320C137F8E00FA06C6 /* DDCliApplication.h in Headers */,
 				55CCE9340C137F8E00FA06C6 /* DDCliUtil.h in Headers */,
 				55CCEA870C138BE900FA06C6 /* DDGetoptLongParser.h in Headers */,
+				55200F530C4A27FD00018A42 /* DDCliParseException.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +308,7 @@
 				55CCE9330C137F8E00FA06C6 /* DDCliApplication.m in Sources */,
 				55CCE9350C137F8E00FA06C6 /* DDCliUtil.m in Sources */,
 				55CCE9370C137F8E00FA06C6 /* DDGetoptLongParser.m in Sources */,
+				55200F540C4A27FD00018A42 /* DDCliParseException.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

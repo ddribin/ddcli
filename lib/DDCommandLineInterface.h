@@ -28,6 +28,7 @@
 #import "DDGetoptLongParser.h"
 #import "DDCliApplication.h"
 #import "DDCliUtil.h"
+#import "DDCliParseException.h"
 
 
 /**

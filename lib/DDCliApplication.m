@@ -25,6 +25,7 @@
 #import "DDCliApplication.h"
 #import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
+#import "DDCliParseException.h"
 
 DDCliApplication * DDCliApp = nil;
 
@@ -73,6 +74,11 @@ DDCliApplication * DDCliApp = nil;
 
         result = [delegate application: self
                       runWithArguments: arguments];
+    }
+    @catch (DDCliParseException * e)
+    {
+        ddfprintf(stderr, @"%@: %@\n", self, [e reason]);
+        result = [e exitCode];
     }
     @catch (NSException * e)
     {
