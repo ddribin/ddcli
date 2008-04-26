@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 
 require 'pathname'
+require 'fileutils'
 
 me = Pathname.new($0)
 my_dir = me.dirname
@@ -16,10 +17,18 @@ end
 
 doxyfile = my_dir + "Doxyfile"
 footer = my_dir + "doxygen-footer.html"
+input = project_dir + "lib"
+output = project_dir + "build/doc"
+
 config = doxyfile.read
 config.concat <<EOF
-PROJECT_NUMBER=#{version}
-HTML_FOOTER=#{footer}
+PROJECT_NUMBER = #{version}
+INPUT = #{input}
+HTML_FOOTER = #{footer}
+OUTPUT_DIRECTORY = #{output}
+EXAMPLE_PATH = #{project_dir}
 EOF
 
+# Ensures no old files are laying around
+FileUtils.rm_rf(output)
 IO::popen("doxygen -", "w") { |io| io.puts config }
