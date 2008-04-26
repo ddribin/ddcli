@@ -67,6 +67,26 @@
     return self;
 }
 
+- (void) dealloc
+{
+    [mOptionInfoMap release];
+    [mOptionString release];
+    [mOptionsData release];
+    
+    [super dealloc];
+}
+
+- (id) target;
+{
+    return mTarget;
+}
+
+- (void) setTarget: (id) target;
+{
+    mTarget = target;
+}
+
+
 - (void) setGetoptLongOnly: (BOOL) getoptLongOnly;
 {
     if (getoptLongOnly)

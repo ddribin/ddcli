@@ -100,6 +100,20 @@ typedef struct
 - (id) initWithTarget: (id) target;
 
 /**
+ * Returns the target object.
+ *
+ * @return The target object
+ */
+- (id) target;
+
+/**
+ * Sets the target object.
+ *
+ * @param target The target object
+ */
+- (void) setTarget: (id) target;
+
+/**
  * If set to YES, parses options with getopt_long_only() instead of
  * getopt_long().
  *
