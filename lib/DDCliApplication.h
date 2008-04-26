@@ -135,7 +135,7 @@ int DDCliAppRunWithClass(Class delegateClass);
 /**
  * @example example.m
  *
- * This is a slighly more complexe example application.  Here are a
+ * This is a slighly more complex example application.  Here are a
  * few sample runs of this program:
  *
  * @verbatim
