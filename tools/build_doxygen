@@ -1,0 +1,25 @@
+#!/usr/bin/ruby
+
+require 'pathname'
+
+me = Pathname.new($0)
+my_dir = me.dirname
+project_dir = my_dir.parent
+versions = project_dir + "versions.xcconfig"
+
+version = nil
+versions.open.each do |line|
+  if line.match(/\s*CURRENT_MARKETING_VERSION\s*=\s*(.*)\s*/)
+    version = $1
+  end
+end
+
+doxyfile = my_dir + "Doxyfile"
+footer = my_dir + "doxygen-footer.html"
+config = doxyfile.read
+config.concat <<EOF
+PROJECT_NUMBER=#{version}
+HTML_FOOTER=#{footer}
+EOF
+
+IO::popen("doxygen -", "w") { |io| io.puts config }
