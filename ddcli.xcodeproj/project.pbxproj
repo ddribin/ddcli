@@ -288,9 +288,11 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "ddcli" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 08FB7794FE84155DC02AAC07 /* ddcli */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				55CCEA590C13887100FA06C6 /* All */,
 				8DD76F960486AA7600D96B5E /* example */,
