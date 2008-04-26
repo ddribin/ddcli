@@ -26,7 +26,7 @@
     if ([file isEqualToString: @"invalid"])
     {
         DDCliParseException * e =
-            [DDCliParseException parseExceptionWithReason: @"Invalid name"
+            [DDCliParseException parseExceptionWithReason: @"Invalid include name"
                                                  exitCode: EX_USAGE];
         @throw e;
     }
