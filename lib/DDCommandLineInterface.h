@@ -35,7 +35,8 @@
 /**
  * @mainpage ddcli: An Objective-C Command Line Helper
  *
- * ddcli is an Objective-C library to help write command line
+ * <a href="http://www.dribin.org/dave/software/#ddcli">ddcli</a> is an
+ * Objective-C library to help write command line
  * applications by simplifying parsing command line options and
  * eliminating much of the boiler plate code.  The <a
  * href="http://developer.apple.com/documentation/Darwin/Reference/ManPages/man3/getopt_long.3.html">getopt_long(3)</a>
