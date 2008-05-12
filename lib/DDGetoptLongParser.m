@@ -72,6 +72,7 @@
     [mOptionInfoMap release];
     [mOptionString release];
     [mOptionsData release];
+    [mUtf8Data release];
     
     [super dealloc];
 }
