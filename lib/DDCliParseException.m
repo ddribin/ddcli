@@ -40,13 +40,13 @@
     self = [super initWithName: NSStringFromClass([self class])
                         reason: reason
                       userInfo: nil];
-    mExitCode = exitCode;
+    _exitCode = exitCode;
     return self;
 }
 
 - (int)exitCode;
 {
-    return mExitCode;
+    return _exitCode;
 }
 
 @end

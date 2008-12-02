@@ -75,14 +75,14 @@ typedef struct
 @interface DDGetoptLongParser : NSObject
 {
     @private
-    id mTarget;
-    int mNextShortOption;
-    NSMutableString * mOptionString;
-    NSMutableDictionary * mOptionInfoMap;
-    NSMutableData * mOptionsData;
-    int mCurrentOption;
-    NSMutableArray * mUtf8Data;
-    DDGetoptFunction mGetoptFunction;
+    id _target;
+    int _nextShortOption;
+    NSMutableString * _optionString;
+    NSMutableDictionary * _optionInfoMap;
+    NSMutableData * _optionsData;
+    int _currentOption;
+    NSMutableArray * _utf8Data;
+    DDGetoptFunction _getoptFunction;
 }
 
 /**

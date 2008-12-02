@@ -32,7 +32,7 @@
 @interface DDCliParseException : NSException
 {
     @private
-    int mExitCode;
+    int _exitCode;
 }
 
 /**
