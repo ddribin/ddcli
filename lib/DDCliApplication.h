@@ -98,7 +98,8 @@
  * delegate class, and releases it up completion.  Exceptions are
  * trapped, and an error message is printed.
  *
- * @param delegateClass The class of the delegate
+ * @param delegateClass The class of the delegate or <code>nil</code>
+ *   to search all classes for the delegate.
  */
 - (int) runWithClass: (Class) delegateClass;
 
@@ -124,26 +125,26 @@ int DDCliAppRunWithClass(Class delegateClass);
 
 /**
  * Runs a command line application with the default delegate class.  To find
- * the default delegate class, all classes are searched until one implements
- * the DDCliApplicationDelegate protocol.  The first matching class is used,
- * so be sure to only include a single class that implements this protocol
- * per application.
+ * the default delegate class, all classes are searched until one is found
+ * that implements the DDCliApplicationDelegate protocol.  The first matching
+ * class is used as the delegate class, so be sure to only include a single
+ * class that implements this protocol per application.
  */
 int DDCliAppRunWithDefaultClass();
 
 /** @} */
 
 /**
- * @example simple.m
+ * @example SimpleApp.m
  *
  * This is a very simple example application.
  *
  * @include SimpleApp.h
- * @include SimpleApp.m
+ * @include ddcli_main.m
  */
 
 /**
- * @example example.m
+ * @example ExampleApp.m
  *
  * This is a slighly more complex example application.  Here are a
  * few sample runs of this program:
@@ -184,5 +185,5 @@ Arguments: ("one.c", "two.c")
  * Here is the source code:
  *
  * @include ExampleApp.h
- * @include ExampleApp.m
+ * @include ddcli_main.m
  */
