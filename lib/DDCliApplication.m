@@ -23,12 +23,19 @@
  */
 
 #import <sysexits.h>
+#import <objc/runtime.h>
 #import "DDCliApplication.h"
 #import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
 #import "DDCliParseException.h"
 
 DDCliApplication * DDCliApp = nil;
+
+@interface DDCliApplication ()
+
+- (Class)findFirstDelegateClass;
+
+@end
 
 @implementation DDCliApplication
 
@@ -51,9 +58,21 @@ DDCliApplication * DDCliApp = nil;
     return self;
 }
 
+- (void)dealloc
+{
+    [mName release];
+    
+    [super dealloc];
+}
+
 - (NSString *) name;
 {
     return mName;
+}
+
+- (NSString *) description;
+{
+    return [self name];
 }
 
 - (int) runWithClass: (Class) delegateClass;
@@ -62,6 +81,14 @@ DDCliApplication * DDCliApp = nil;
     int result = EXIT_SUCCESS;
     @try
     {
+        if (delegateClass == nil)
+            delegateClass = [self findFirstDelegateClass];
+        if (delegateClass == nil)
+        {
+            ddfprintf(stderr, @"%@: delegate class not found\n", self);
+            return EX_CONFIG;
+        }
+        
         delegate = [[delegateClass alloc] init];
 
         DDGetoptLongParser * optionsParser =
@@ -98,19 +125,52 @@ DDCliApplication * DDCliApp = nil;
     return result;
 }
 
-- (NSString *) description;
+- (Class)findFirstDelegateClass;
 {
-    return [self name];
+    Protocol * delegateProtocol = @protocol(DDCliApplicationDelegate);
+    Class delegateClass = nil;
+    
+    Class * classes = NULL;
+    int numClasses = objc_getClassList(NULL, 0);
+    
+    if (numClasses > 0 )
+    {
+        classes = alloca(sizeof(Class) * numClasses);
+        numClasses = objc_getClassList(classes, numClasses);
+    }
+    int i;
+    for (i = 0; i < numClasses; i++)
+    {
+        if (class_conformsToProtocol(classes[i], delegateProtocol))
+        {
+            delegateClass = classes[i];
+            break;
+        }
+    }
+    
+    return delegateClass;
 }
 
 @end
 
 int DDCliAppRunWithClass(Class delegateClass)
 {
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool * pool = nil;
+    if (objc_collectingEnabled())
+        objc_startCollectorThread();
+    else
+        pool = [[NSAutoreleasePool alloc] init];
+    
     // Initialize singleton/global
     DDCliApplication * app = [DDCliApplication sharedApplication];
     int result = [app runWithClass: delegateClass];
-    [pool release];
+
+    [pool drain];
+    
     return result;
+}
+
+int DDCliAppRunWithDefaultClass()
+{
+    return DDCliAppRunWithClass(nil);
 }

@@ -117,9 +117,19 @@ extern DDCliApplication * DDCliApp;
  * This sets up an autorelease pool, and creates an instance of the
  * delegate class.
  *
- * @param delegateClass Class to instantiate for the delegate.
+ * @param delegateClass Class to instantiate for the delegate or
+ *   <code>nil</code> to specify the default delegate class.
  */
 int DDCliAppRunWithClass(Class delegateClass);
+
+/**
+ * Runs a command line application with the default delegate class.  To find
+ * the default delegate class, all classes are searched until one implements
+ * the DDCliApplicationDelegate protocol.  The first matching class is used,
+ * so be sure to only include a single class that implements this protocol
+ * per application.
+ */
+int DDCliAppRunWithDefaultClass();
 
 /** @} */
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -24,6 +24,7 @@
 /* Begin PBXBuildFile section */
 		55200F530C4A27FD00018A42 /* DDCliParseException.h in Headers */ = {isa = PBXBuildFile; fileRef = 55200F510C4A27FD00018A42 /* DDCliParseException.h */; };
 		55200F540C4A27FD00018A42 /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = 55200F520C4A27FD00018A42 /* DDCliParseException.m */; };
+		5577387A0EE4E2B000A413A7 /* ddcli_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCEA260C1381E500FA06C6 /* ddcli_main.m */; };
 		55CCE4790C11C5C200FA06C6 /* ExampleApp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 55CCE4770C11C5C200FA06C6 /* ExampleApp.h */; };
 		55CCE47A0C11C5C200FA06C6 /* ExampleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE4780C11C5C200FA06C6 /* ExampleApp.m */; };
 		55CCE9310C137F8E00FA06C6 /* DDCommandLineInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCE46D0C11C58F00FA06C6 /* DDCommandLineInterface.h */; };
@@ -36,9 +37,8 @@
 		55CCE97C0C1380D800FA06C6 /* SimpleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCE97B0C1380D800FA06C6 /* SimpleApp.m */; };
 		55CCE9800C13814F00FA06C6 /* libddcli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CCE92E0C137F7D00FA06C6 /* libddcli.a */; };
 		55CCE9810C13815500FA06C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		55CCEA270C1381E500FA06C6 /* simple.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCEA260C1381E500FA06C6 /* simple.m */; };
+		55CCEA270C1381E500FA06C6 /* ddcli_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCEA260C1381E500FA06C6 /* ddcli_main.m */; };
 		55CCEA870C138BE900FA06C6 /* DDGetoptLongParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */; };
-		8DD76F9A0486AA7600D96B5E /* example.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* example.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* ddcli.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* ddcli.1 */; };
 /* End PBXBuildFile section */
@@ -89,7 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08FB7796FE84155DC02AAC07 /* example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = example.m; sourceTree = "<group>"; };
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* ddcli_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ddcli_Prefix.pch; sourceTree = "<group>"; };
 		55200F510C4A27FD00018A42 /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
@@ -106,7 +105,7 @@
 		55CCE9760C1380C900FA06C6 /* simple */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simple; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CCE97A0C1380D800FA06C6 /* SimpleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleApp.h; sourceTree = "<group>"; };
 		55CCE97B0C1380D800FA06C6 /* SimpleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleApp.m; sourceTree = "<group>"; };
-		55CCEA260C1381E500FA06C6 /* simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = simple.m; sourceTree = "<group>"; };
+		55CCEA260C1381E500FA06C6 /* ddcli_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ddcli_main.m; sourceTree = "<group>"; };
 		55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
 		55CCEB150C13963F00FA06C6 /* versions.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = versions.xcconfig; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = example; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,12 +158,11 @@
 			isa = PBXGroup;
 			children = (
 				32A70AAB03705E1F00C91783 /* ddcli_Prefix.pch */,
-				08FB7796FE84155DC02AAC07 /* example.m */,
 				55CCE4770C11C5C200FA06C6 /* ExampleApp.h */,
 				55CCE4780C11C5C200FA06C6 /* ExampleApp.m */,
-				55CCEA260C1381E500FA06C6 /* simple.m */,
 				55CCE97A0C1380D800FA06C6 /* SimpleApp.h */,
 				55CCE97B0C1380D800FA06C6 /* SimpleApp.m */,
+				55CCEA260C1381E500FA06C6 /* ddcli_main.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -288,7 +286,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "ddcli" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 08FB7794FE84155DC02AAC07 /* ddcli */;
 			projectDirPath = "";
@@ -319,7 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55CCE97C0C1380D800FA06C6 /* SimpleApp.m in Sources */,
-				55CCEA270C1381E500FA06C6 /* simple.m in Sources */,
+				55CCEA270C1381E500FA06C6 /* ddcli_main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,8 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD76F9A0486AA7600D96B5E /* example.m in Sources */,
 				55CCE47A0C11C5C200FA06C6 /* ExampleApp.m in Sources */,
+				5577387A0EE4E2B000A413A7 /* ddcli_main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +397,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -415,7 +413,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};
