@@ -28,15 +28,15 @@
 
 @interface DDGetoptLongParser ()
 
-- (NSString *) optionToKey: (NSString *) option;
-- (struct option *) firstOption;
-- (struct option *) currentOption;
-- (void) addOption;
-- (NSString *) errorOption: (NSString *) option;
-- (void) handleMissingArgument: (NSString *) option
-                       command: (NSString *) command;
-- (void) handleArgumentNotRecognized: (NSString *) option
-                             command: (NSString *) command;
+- (NSString *)optionToKey:(NSString *)option;
+- (struct option *)firstOption;
+- (struct option *)currentOption;
+- (void)addOption;
+- (NSString *)errorOption:(NSString *)option;
+- (void)handleMissingArgument:(NSString *)option
+                      command:(NSString *)command;
+- (void)handleArgumentNotRecognized:(NSString *)option
+                            command:(NSString *)command;
 
 @end
 
@@ -246,25 +246,25 @@
     return key;
 }
 
-- (struct option *) firstOption;
+- (struct option *)firstOption;
 {
     struct option * options = [_optionsData mutableBytes];
     return options;
 }
 
-- (struct option *) currentOption;
+- (struct option *)currentOption;
 {
     struct option * options = [_optionsData mutableBytes];
     return &options[_currentOption];
 }
 
-- (void) addOption;
+- (void)addOption;
 {
     [_optionsData increaseLengthBy: sizeof(struct option)];
     _currentOption++;
 }
 
-- (NSString *) errorOption: (NSString *) option;
+- (NSString *)errorOption:(NSString *)option;
 {
     if (![option hasPrefix: @"-"])
         return [NSString stringWithFormat: @"%c", optopt];
@@ -272,8 +272,8 @@
         return option;
 }
 
-- (void) handleMissingArgument: (NSString *) option
-                       command: (NSString *) command;
+- (void)handleMissingArgument:(NSString *)option
+                      command:(NSString *)command;
 {
     option = [self errorOption: option];
     
@@ -289,8 +289,8 @@
     }
 }
 
-- (void) handleArgumentNotRecognized: (NSString *) option
-                             command: (NSString *) command;
+- (void)handleArgumentNotRecognized:(NSString *)option
+                            command:(NSString *)command;
 {
     option = [self errorOption: option];
     if ([_target respondsToSelector: @selector(optionIsNotRecognized:)])
