@@ -1,5 +1,5 @@
-- (void) application: (DDCliApplication *) app
-    willParseOptions: (DDGetoptLongParser *) optionsParser;
+- (void)application:(DDCliApplication *)app
+   willParseOptions:(DDGetoptLongParser *)optionsParser;
 {
     DDGetoptOption optionTable[] = 
     {

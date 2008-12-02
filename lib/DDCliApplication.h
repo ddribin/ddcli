@@ -41,8 +41,8 @@
  * @param arguments Command line arguments, post option parsing
  * @return The return value of the application
  */
-- (int) application: (DDCliApplication *) app
-   runWithArguments: (NSArray *) arguments;
+- (int)application:(DDCliApplication *)app
+  runWithArguments:(NSArray *)arguments;
 
 /**
  * Called prior to option parsing so that options may added to the
@@ -51,8 +51,8 @@
  * @param app The corresponding application instance
  * @param optionParser The option parser.
  */
-- (void) application: (DDCliApplication *) app
-    willParseOptions: (DDGetoptLongParser *) optionParser;
+- (void)application:(DDCliApplication *)app
+   willParseOptions:(DDGetoptLongParser *)optionParser;
 
 @end
 
@@ -62,7 +62,7 @@
 @interface DDCliApplication : NSObject
 {
     @private
-    NSString * mName;
+    NSString * _name;
 }
 
 /**
@@ -70,14 +70,14 @@
  *
  * @return The common shared application
  */
-+ (DDCliApplication *) sharedApplication;
++ (DDCliApplication *)sharedApplication;
 
 /**
  * Returns the name of this application.
  *
  * @return The name of this application
  */
-- (NSString *) name;
+- (NSString *)name;
 
 /**
  * Returns the name of this application.  Coupled with the
@@ -90,7 +90,7 @@
  *
  * @return The application name
  */
-- (NSString *) description;
+- (NSString *)description;
 
 /**
  * Runs a command line application with the specified delegate class,
@@ -101,7 +101,7 @@
  * @param delegateClass The class of the delegate or <code>nil</code>
  *   to search all classes for the delegate.
  */
-- (int) runWithClass: (Class) delegateClass;
+- (int)runWithClass:(Class)delegateClass;
 
 @end
 

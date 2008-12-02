@@ -90,28 +90,28 @@ typedef struct
  *
  * @param target Object that receives target messages.
  */
-+ (DDGetoptLongParser *) optionsWithTarget: (id) target;
++ (DDGetoptLongParser *)optionsWithTarget:(id)target;
 
 /**
  * Create an option parser with the given target.
  *
  * @param target Object that receives target messages.
  */
-- (id) initWithTarget: (id) target;
+- (id)initWithTarget:(id)target;
 
 /**
  * Returns the target object.
  *
  * @return The target object
  */
-- (id) target;
+- (id)target;
 
 /**
  * Sets the target object.
  *
  * @param target The target object
  */
-- (void) setTarget: (id) target;
+- (void)setTarget:(id)target;
 
 /**
  * If set to YES, parses options with getopt_long_only() instead of
@@ -119,7 +119,7 @@ typedef struct
  *
  * @param getoptLongOnly YES means parse with getopt_long_only()
  */
-- (void) setGetoptLongOnly: (BOOL) getoptLongOnly;
+- (void)setGetoptLongOnly:(BOOL)getoptLongOnly;
 
 /**
  * Add all options from a null terminated option table.  The final
@@ -128,7 +128,7 @@ typedef struct
  *
  * @param optionTable An array of DDGetoptOption.
  */
-- (void) addOptionsFromTable: (DDGetoptOption *) optionTable;
+- (void)addOptionsFromTable:(DDGetoptOption *)optionTable;
 
 /**
  * Add an option with both long and short options.  The long option
@@ -140,10 +140,10 @@ typedef struct
  * @param key The key use when the option is parsed
  * @param argumentOptions Options for this options argument
  */
-- (void) addLongOption: (NSString *) longOption
-           shortOption: (char) shortOption
-                   key: (NSString *) key
-       argumentOptions: (DDGetoptArgumentOptions) argumentOptions;
+- (void)addLongOption:(NSString *)longOption
+          shortOption:(char)shortOption
+                  key:(NSString *)key
+      argumentOptions:(DDGetoptArgumentOptions)argumentOptions;
 
 /**
  * Add an option with no short option.
@@ -152,9 +152,9 @@ typedef struct
  * @param key The key use when the option is parsed
  * @param argumentOptions Options for this options argument
  */
-- (void) addLongOption: (NSString *) longOption
-                   key: (NSString *) key
-       argumentOptions: (DDGetoptArgumentOptions) argumentOptions;
+- (void)addLongOption:(NSString *)longOption
+                  key:(NSString *)key
+      argumentOptions:(DDGetoptArgumentOptions)argumentOptions;
 
 /**
  * Parse the options using the arguments and command name from
@@ -162,7 +162,7 @@ typedef struct
  *
  * @return Arguments left over after option parsing or <code>nil</code>
  */
-- (NSArray *) parseOptions;
+- (NSArray *)parseOptions;
 
 /**
  * Parse the options on an array of arguments.
@@ -171,8 +171,8 @@ typedef struct
  * @param command Command name to use for error messages.
  * @return Arguments left over after option processing or <code>nil</code>
  */
-- (NSArray *) parseOptionsWithArguments: (NSArray *) arguments
-                                command: (NSString *) command;
+- (NSArray *)parseOptionsWithArguments:(NSArray *)arguments
+                               command:(NSString *)command;
 
 @end
 
@@ -189,7 +189,7 @@ typedef struct
  *
  * @param option The option that was not recognized.
  */
-- (void) optionIsNotRecognized: (NSString *) option;
+- (void)optionIsNotRecognized:(NSString *)option;
 
 /**
  * Called if an argument was not supplied for option that is required
@@ -200,6 +200,6 @@ typedef struct
  *
  * @param option The option that had the missiong argument.
  */
-- (void) optionIsMissingArgument: (NSString *) option;
+- (void)optionIsMissingArgument:(NSString *)option;
 
 @end

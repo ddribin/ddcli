@@ -42,8 +42,8 @@
  * @param exitCode Desired exit code
  * @return Autoreleased exception
  */
-+ (DDCliParseException *) parseExceptionWithReason: (NSString *) reason
-                                          exitCode: (int) exitCode;
++ (DDCliParseException *)parseExceptionWithReason:(NSString *)reason
+                                         exitCode:(int)exitCode;
 
 /**
  * Create a new exception with a given reason and exit code.
@@ -52,14 +52,14 @@
  * @param exitCode Desired exit code
  * @return New exception
  */
-- (id) initWithReason: (NSString *) reason
-             exitCode: (int) exitCode;
+- (id)initWithReason:(NSString *)reason
+            exitCode:(int)exitCode;
 
 /**
  * Returns the desired exit code.
  *
  * @return The desired exit code
  */
-- (int) exitCode;
+- (int)exitCode;
 
 @end

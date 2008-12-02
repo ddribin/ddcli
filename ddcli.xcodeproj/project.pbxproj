@@ -93,6 +93,9 @@
 		32A70AAB03705E1F00C91783 /* ddcli_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ddcli_Prefix.pch; sourceTree = "<group>"; };
 		55200F510C4A27FD00018A42 /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
 		55200F520C4A27FD00018A42 /* DDCliParseException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliParseException.m; sourceTree = "<group>"; };
+		557738EB0EE4ED0600A413A7 /* appDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appDelegate.m; sourceTree = "<group>"; };
+		557738EC0EE4ED0600A413A7 /* runWithArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = runWithArguments.m; sourceTree = "<group>"; };
+		557738ED0EE4ED0600A413A7 /* willParseOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = willParseOptions.m; sourceTree = "<group>"; };
 		55CCE4690C11C58F00FA06C6 /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
 		55CCE46A0C11C58F00FA06C6 /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
 		55CCE46B0C11C58F00FA06C6 /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
@@ -204,9 +207,13 @@
 		C6859EA2029092E104C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				557738EB0EE4ED0600A413A7 /* appDelegate.m */,
+				557738EC0EE4ED0600A413A7 /* runWithArguments.m */,
+				557738ED0EE4ED0600A413A7 /* willParseOptions.m */,
 				C6859EA3029092ED04C91782 /* ddcli.1 */,
 			);
 			name = Documentation;
+			path = doc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

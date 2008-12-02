@@ -39,43 +39,43 @@ DDCliApplication * DDCliApp = nil;
 
 @implementation DDCliApplication
 
-+ (DDCliApplication *) sharedApplication;
++ (DDCliApplication *)sharedApplication;
 {
     if (DDCliApp == nil)
         DDCliApp = [[DDCliApplication alloc] init];
     return DDCliApp;
 }
 
-- (id) init;
+- (id)init;
 {
     self = [super init];
     if (self == nil)
         return nil;
     
     NSProcessInfo * processInfo = [NSProcessInfo processInfo];
-    mName = [[processInfo processName] retain];
+    _name = [[processInfo processName] retain];
     
     return self;
 }
 
 - (void)dealloc
 {
-    [mName release];
+    [_name release];
     
     [super dealloc];
 }
 
-- (NSString *) name;
+- (NSString *)name;
 {
-    return mName;
+    return _name;
 }
 
-- (NSString *) description;
+- (NSString *)description;
 {
     return [self name];
 }
 
-- (int) runWithClass: (Class) delegateClass;
+- (int)runWithClass:(Class)delegateClass;
 {
     NSObject<DDCliApplicationDelegate> * delegate = nil;
     int result = EXIT_SUCCESS;

@@ -42,12 +42,12 @@
 
 @implementation DDGetoptLongParser
 
-+ (DDGetoptLongParser *) optionsWithTarget: (id) target;
++ (DDGetoptLongParser *)optionsWithTarget:(id)target;
 {
     return [[[self alloc] initWithTarget: target] autorelease];
 }
 
-- (id) initWithTarget: (id) target;
+- (id)initWithTarget:(id)target;
 {
     self = [super init];
     if (self == nil)
@@ -67,7 +67,7 @@
     return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
     [mOptionInfoMap release];
     [mOptionString release];
@@ -77,18 +77,18 @@
     [super dealloc];
 }
 
-- (id) target;
+- (id)target;
 {
     return mTarget;
 }
 
-- (void) setTarget: (id) target;
+- (void)setTarget:(id)target;
 {
     mTarget = target;
 }
 
 
-- (void) setGetoptLongOnly: (BOOL) getoptLongOnly;
+- (void)setGetoptLongOnly:(BOOL)getoptLongOnly;
 {
     if (getoptLongOnly)
         mGetoptFunction = getopt_long_only;
@@ -96,7 +96,7 @@
         mGetoptFunction = getopt_long;
 }
 
-- (void) addOptionsFromTable: (DDGetoptOption *) optionTable;
+- (void)addOptionsFromTable:(DDGetoptOption *)optionTable;
 {
     DDGetoptOption * currentOption = optionTable;
     while ((currentOption->longOption != nil) ||
@@ -110,10 +110,10 @@
     }
 }
 
-- (void) addLongOption: (NSString *) longOption
-           shortOption: (char) shortOption
-                   key: (NSString *) key
-       argumentOptions: (DDGetoptArgumentOptions) argumentOptions;
+- (void)addLongOption:(NSString *)longOption
+          shortOption:(char)shortOption
+                  key:(NSString *)key
+      argumentOptions:(DDGetoptArgumentOptions)argumentOptions;
 {
     const char * utf8String = [longOption UTF8String];
     NSData * utf8Data = [NSData dataWithBytes: utf8String length: strlen(utf8String)];
@@ -151,15 +151,15 @@
     [mUtf8Data addObject: utf8Data];
 }
 
-- (void) addLongOption: (NSString *) longOption
-                   key: (NSString *) key
-       argumentOptions: (DDGetoptArgumentOptions) argumentOptions;
+- (void)addLongOption:(NSString *)longOption
+                  key:(NSString *)key
+      argumentOptions:(DDGetoptArgumentOptions)argumentOptions;
 {
     [self addLongOption: longOption shortOption: 0
                     key: key argumentOptions: argumentOptions];
 }
 
-- (NSArray *) parseOptions;
+- (NSArray *)parseOptions;
 {
     NSProcessInfo * processInfo = [NSProcessInfo processInfo];
     NSArray * arguments = [processInfo arguments];
@@ -167,8 +167,8 @@
     return [self parseOptionsWithArguments: arguments command: command];
 }
 
-- (NSArray *) parseOptionsWithArguments: (NSArray *) arguments
-                                command: (NSString *) command;
+- (NSArray *)parseOptionsWithArguments:(NSArray *)arguments
+                               command:(NSString *)command;
 {
     int argc = [arguments count];
     char ** argv = alloca(sizeof(char *) * argc);
@@ -233,7 +233,7 @@
 
 @implementation DDGetoptLongParser (Private)
 
-- (NSString *) optionToKey: (NSString *) option;
+- (NSString *)optionToKey:(NSString *)option;
 {
     NSScanner * scanner = [NSScanner scannerWithString: option];
     [scanner setCharactersToBeSkipped: [NSCharacterSet characterSetWithCharactersInString: @"-"]];

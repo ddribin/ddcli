@@ -2,7 +2,7 @@
 
 @implementation ExampleApp
 
-- (id) init;
+- (id)init;
 {
     self = [super init];
     if (self == nil)
@@ -13,7 +13,7 @@
     return self;
 }
 
-- (void) setVerbose: (BOOL) verbose;
+- (void)setVerbose:(BOOL)verbose;
 {
     if (verbose)
         _verbosity++;
@@ -21,7 +21,7 @@
         _verbosity--;
 }
 
-- (void) setInclude: (NSString *) file;
+- (void)setInclude:(NSString *)file;
 {
     if ([file isEqualToString: @"invalid"])
     {
@@ -33,12 +33,12 @@
     [_includeDirectories addObject: file];
 }
 
-- (void) printUsage: (FILE *) stream;
+- (void)printUsage: (FILE *) stream;
 {
     ddfprintf(stream, @"%@: Usage [OPTIONS] <argument> [...]\n", DDCliApp);
 }
 
-- (void) printHelp;
+- (void)printHelp;
 {
     [self printUsage: stdout];
     printf("\n"
@@ -53,13 +53,13 @@
            "A test application for DDCommandLineInterface.\n");
 }
 
-- (void) printVersion;
+- (void)printVersion;
 {
     ddprintf(@"%@ version %s\n", DDCliApp, CURRENT_MARKETING_VERSION);
 }
 
-- (void) application: (DDCliApplication *) app
-    willParseOptions: (DDGetoptLongParser *) optionsParser;
+- (void)application:(DDCliApplication *)app
+   willParseOptions:(DDGetoptLongParser *)optionsParser;
 {
     DDGetoptOption optionTable[] = 
     {
@@ -76,8 +76,8 @@
     [optionsParser addOptionsFromTable: optionTable];
 }
 
-- (int) application: (DDCliApplication *) app
-   runWithArguments: (NSArray *) arguments;
+- (int)application:(DDCliApplication *)app
+  runWithArguments:(NSArray *)arguments;
 {
     if (_help)
     {

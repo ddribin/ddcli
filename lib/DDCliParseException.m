@@ -27,15 +27,15 @@
 
 @implementation DDCliParseException
 
-+ (DDCliParseException *) parseExceptionWithReason: (NSString *) reason
-                                          exitCode: (int) exitCode;
++ (DDCliParseException *)parseExceptionWithReason:(NSString *)reason
+                                         exitCode:(int)exitCode;
 {
     return [[[self alloc] initWithReason: reason
                                 exitCode: exitCode] autorelease];
 }
 
-- (id) initWithReason: (NSString *) reason
-             exitCode: (int) exitCode;
+- (id)initWithReason:(NSString *)reason
+            exitCode:(int)exitCode;
 {
     self = [super initWithName: NSStringFromClass([self class])
                         reason: reason
@@ -44,7 +44,7 @@
     return self;
 }
 
-- (int) exitCode;
+- (int)exitCode;
 {
     return mExitCode;
 }
