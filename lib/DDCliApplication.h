@@ -139,8 +139,8 @@ int DDCliAppRunWithDefaultClass();
  *
  * This is a very simple example application.
  *
- * @include SimpleApp.h
  * @include ddcli_main.m
+ * @include SimpleApp.h
  */
 
 /**
@@ -184,6 +184,6 @@ Arguments: ("one.c", "two.c")
  *
  * Here is the source code:
  *
- * @include ExampleApp.h
  * @include ddcli_main.m
+ * @include ExampleApp.h
  */
