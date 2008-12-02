@@ -23,7 +23,7 @@
 
 - (void)setInclude:(NSString *)file;
 {
-    if ([file isEqualToString:"invalid"])
+    if ([file isEqualToString:@"invalid"])
     {
         DDCliParseException * e =
             [DDCliParseException parseExceptionWithReason:@"Invalid include name"
