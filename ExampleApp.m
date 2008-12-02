@@ -23,17 +23,17 @@
 
 - (void)setInclude:(NSString *)file;
 {
-    if ([file isEqualToString: @"invalid"])
+    if ([file isEqualToString:"invalid"])
     {
         DDCliParseException * e =
-            [DDCliParseException parseExceptionWithReason: @"Invalid include name"
-                                                 exitCode: EX_USAGE];
+            [DDCliParseException parseExceptionWithReason:@"Invalid include name"
+                                                 exitCode:EX_USAGE];
         @throw e;
     }
-    [_includeDirectories addObject: file];
+    [_includeDirectories addObject:file];
 }
 
-- (void)printUsage: (FILE *) stream;
+- (void)printUsage:(FILE *)stream;
 {
     ddfprintf(stream, @"%@: Usage [OPTIONS] <argument> [...]\n", DDCliApp);
 }
@@ -73,7 +73,7 @@
         {@"help",       'h',    DDGetoptNoArgument},
         {nil,           0,      0},
     };
-    [optionsParser addOptionsFromTable: optionTable];
+    [optionsParser addOptionsFromTable:optionTable];
 }
 
 - (int)application:(DDCliApplication *)app
