@@ -56,24 +56,30 @@ DDCliApplication * DDCliApp = nil;
     return mName;
 }
 
-- (int) runWithClass: (Class) delegateClass;
+- (int) runWithDelegate:(id<DDCliApplicationDelegate>) delegateInstance
+			  arguments:(NSArray*) inputArguments
 {
-    NSObject<DDCliApplicationDelegate> * delegate = nil;
     int result = EXIT_SUCCESS;
     @try
     {
-        delegate = [[delegateClass alloc] init];
-
         DDGetoptLongParser * optionsParser =
-            [DDGetoptLongParser optionsWithTarget: delegate];
-        [delegate application: self willParseOptions: optionsParser];
-        NSArray * arguments = [optionsParser parseOptions];
+            [DDGetoptLongParser optionsWithTarget: delegateInstance];
+        [delegateInstance application: self willParseOptions: optionsParser];
+		NSArray* arguments;
+		if ( inputArguments == nil )
+		{
+			arguments = [optionsParser parseOptions];
+		}
+		else
+		{
+			arguments = [optionsParser parseOptionsWithArguments:inputArguments command:[[NSProcessInfo processInfo] processName]];
+		}
         if (arguments == nil)
         {
             return EX_USAGE;
         }
 
-        result = [delegate application: self
+        result = [delegateInstance application: self
                       runWithArguments: arguments];
     }
     @catch (DDCliParseException * e)
@@ -86,16 +92,21 @@ DDCliApplication * DDCliApp = nil;
         ddfprintf(stderr, @"Caught: %@: %@\n", [e name], [e description]);
         result = EXIT_FAILURE;
     }
-    @finally
-    {
-        if (delegate != nil)
-        {
-            [delegate release];
-            delegate = nil;
-        }
-    }
     
     return result;
+}
+
+- (int) runWithClass: (Class) delegateClass
+{
+	id<DDCliApplicationDelegate> delegateInstance = nil;
+	@try {
+		id<DDCliApplicationDelegate> delegateInstance = [delegateClass new];
+		return [self runWithDelegate:delegateInstance arguments:nil];
+	}
+	@finally {
+		[delegateInstance release];
+	}
+	
 }
 
 - (NSString *) description;

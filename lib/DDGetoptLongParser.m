@@ -25,6 +25,13 @@
 #import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
 
+extern int
+dd_getopt_long(int nargc, char * const *nargv, const char *options,
+			   const struct option *long_options, int *idx);
+extern int
+dd_getopt_long_only(int nargc, char * const *nargv, const char *options,
+					const struct option *long_options, int *idx);
+
 
 @interface DDGetoptLongParser (Private)
 
@@ -62,7 +69,7 @@
     mOptionString = [[NSMutableString alloc] init];
     [mOptionString appendString: @":"];
     mOptionInfoMap = [[NSMutableDictionary alloc] init];
-    mGetoptFunction = getopt_long;
+    mGetoptFunction = dd_getopt_long;
     
     return self;
 }
@@ -90,9 +97,9 @@
 - (void) setGetoptLongOnly: (BOOL) getoptLongOnly;
 {
     if (getoptLongOnly)
-        mGetoptFunction = getopt_long_only;
+        mGetoptFunction = dd_getopt_long_only;
     else
-        mGetoptFunction = getopt_long;
+        mGetoptFunction = dd_getopt_long;
 }
 
 - (void) addOptionsFromTable: (DDGetoptOption *) optionTable;
@@ -170,7 +177,7 @@
                                 command: (NSString *) command;
 {
     int argc = [arguments count];
-    char ** argv = alloca(sizeof(char *) * (argc+1));
+    char ** argv = alloca(sizeof(char *) * ( argc + 1 ) );
     int i;
     for (i = 0; i < argc; i++)
     {
@@ -192,6 +199,10 @@
     opterr = 1;
     
     int longOptionIndex = -1;
+	/* reset the options parser because it is too stupid to be reset with just optreset */
+	optreset = 1;
+	opterr = 1;
+	optind = 1;
     while ((ch = mGetoptFunction(argc, argv, optionString, options, &longOptionIndex)) != -1)
     {
         NSString * last_argv = [NSString stringWithUTF8String: argv[optind-1]];
@@ -224,8 +235,15 @@
         }
     }
     
-    NSRange range = NSMakeRange(optind, argc - optind);
-    return [arguments subarrayWithRange: range];
+	if ( ( argc - optind ) >= 1 )
+	{
+		NSRange range = NSMakeRange(optind, argc - optind);
+		return [arguments subarrayWithRange: range];
+	}
+	else
+	{
+		return [NSArray array];
+	}
 }
 
 @end

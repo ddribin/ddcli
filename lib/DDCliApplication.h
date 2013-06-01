@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 @class DDCliApplication;
 @class DDGetoptLongParser;
@@ -101,6 +101,9 @@
  * @param delegateClass The class of the delegate
  */
 - (int) runWithClass: (Class) delegateClass;
+
+- (int) runWithDelegate:(id<DDCliApplicationDelegate>) delegateInstance
+			  arguments:(NSArray*) inputArguments;
 
 @end
 
