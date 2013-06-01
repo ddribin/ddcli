@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2007-2008 Dave Dribin
  * 
@@ -121,6 +122,13 @@ dd_getopt_long_only(int nargc, char * const *nargv, const char *options,
                    key: (NSString *) key
        argumentOptions: (DDGetoptArgumentOptions) argumentOptions;
 {
+	if ( argumentOptions == DDGetoptNoArgumentNegatable )
+	{
+		[self addLongOption:longOption shortOption:shortOption key:key argumentOptions:DDGetoptNoArgument];
+		NSString* noKey = [NSString stringWithFormat:@"no-%@",longOption];
+		[self addLongOption:noKey shortOption:shortOption key:noKey argumentOptions:DDGetoptNoArgument];
+		return;
+	}
     const char * utf8String = [longOption UTF8String];
     NSData * utf8Data = [NSData dataWithBytes: utf8String length: strlen(utf8String)];
     
@@ -228,8 +236,14 @@ dd_getopt_long_only(int nargc, char * const *nargv, const char *options,
         {
             NSString * key = [optionInfo objectAtIndex: 0];
             int argumentOptions = [[optionInfo objectAtIndex: 1] intValue];
-            if (argumentOptions == DDGetoptNoArgument)
-                [mTarget setValue: [NSNumber numberWithBool: YES] forKey: key];
+            if (argumentOptions == DDGetoptNoArgument) {
+				BOOL boolValue = YES;
+				if ([key hasPrefix:@"no-"]) {
+					boolValue = NO;
+					key = [key substringFromIndex:3];
+				}
+                [mTarget setValue: [NSNumber numberWithBool: boolValue] forKey: key];
+			}
             else
                 [mTarget setValue: nsoptarg forKey: key];
         }
