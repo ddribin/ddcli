@@ -24,6 +24,7 @@
 
 #import <sysexits.h>
 #import <objc/runtime.h>
+#import <objc/objc-auto.h>
 #import "DDCliApplication.h"
 #import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
