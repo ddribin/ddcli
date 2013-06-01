@@ -170,7 +170,7 @@
                                 command: (NSString *) command;
 {
     int argc = [arguments count];
-    char ** argv = alloca(sizeof(char *) * argc);
+    char ** argv = alloca(sizeof(char *) * (argc+1));
     int i;
     for (i = 0; i < argc; i++)
     {
