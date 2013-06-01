@@ -24,7 +24,6 @@
 
 #import <sysexits.h>
 #import <objc/runtime.h>
-#import <objc/objc-auto.h>
 #import "DDCliApplication.h"
 #import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
@@ -156,11 +155,7 @@ DDCliApplication * DDCliApp = nil;
 
 int DDCliAppRunWithClass(Class delegateClass)
 {
-    NSAutoreleasePool * pool = nil;
-    if (objc_collectingEnabled())
-        objc_startCollectorThread();
-    else
-        pool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     
     // Initialize singleton/global
     DDCliApplication * app = [DDCliApplication sharedApplication];
