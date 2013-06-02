@@ -1,6 +1,9 @@
 /*  This file exists because there is no way to get the POSIXLY_CORRECT behavior of parsing up to first non-option without setting POSIXLY_CORRECT which screws up tons of other stuff.
  */
 
+/*	$OpenBSD: getopt_long.c,v 1.21 2006/09/22 17:22:05 millert Exp $	*/
+/*	$NetBSD: getopt_long.c,v 1.15 2002/01/31 22:43:40 tv Exp $	*/
+
 /*
  * Copyright (c) 2002 Todd C. Miller <Todd.Miller@courtesan.com>
  *
@@ -56,9 +59,13 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "DDGetoptLongParser.h"
-
+#if 0
+#if defined(LIBC_SCCS) && !defined(lint)
+static char *rcsid = "$OpenBSD: getopt_long.c,v 1.16 2004/02/04 18:17:25 millert Exp $";
+#endif /* LIBC_SCCS and not lint */
+#endif
 #include <sys/cdefs.h>
+__FBSDID("$FreeBSD: src/lib/libc/stdlib/getopt_long.c,v 1.15 2006/09/23 14:48:31 ache Exp $");
 
 #include <err.h>
 #include <errno.h>
@@ -570,6 +577,30 @@ start:
 	/* dump back option letter */
 	return (optchar);
 }
+
+#ifdef REPLACE_GETOPT
+/*
+ * getopt --
+ *	Parse argc/argv argument vector.
+ *
+ * [eventually this will replace the BSD getopt]
+ */
+int
+getopt(int nargc, char * const *nargv, const char *options)
+{
+
+	/*
+	 * We don't pass FLAG_PERMUTE to getopt_internal() since
+	 * the BSD getopt(3) (unlike GNU) has never done this.
+	 *
+	 * Furthermore, since many privileged programs call getopt()
+	 * before dropping privileges it makes sense to keep things
+	 * as simple (and bug-free) as possible.
+	 */
+	return (getopt_internal(nargc, nargv, options, NULL, NULL, 0));
+}
+#endif /* REPLACE_GETOPT */
+
 /*
  * getopt_long --
  *	Parse argc/argv argument vector.
@@ -579,7 +610,8 @@ dd_getopt_long(int nargc, char * const *nargv, const char *options,
 	const struct option *long_options, int *idx)
 {
 
-	return (getopt_internal(nargc, nargv, options, long_options, idx, 0));
+	return (getopt_internal(nargc, nargv, options, long_options, idx,
+	    FLAG_PERMUTE));
 }
 
 /*
@@ -591,5 +623,6 @@ dd_getopt_long_only(int nargc, char * const *nargv, const char *options,
 	const struct option *long_options, int *idx)
 {
 
-	return (getopt_internal(nargc, nargv, options, long_options, idx, FLAG_LONGONLY));
+	return (getopt_internal(nargc, nargv, options, long_options, idx,
+	    FLAG_PERMUTE|FLAG_LONGONLY));
 }
