@@ -39,6 +39,7 @@
 		55CCE9810C13815500FA06C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		55CCEA270C1381E500FA06C6 /* ddcli_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCEA260C1381E500FA06C6 /* ddcli_main.m */; };
 		55CCEA870C138BE900FA06C6 /* DDGetoptLongParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */; };
+		55E85D3A175AE7670048DE9B /* dd_getopt_long-fbsd.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E85D39175AE7670048DE9B /* dd_getopt_long-fbsd.m */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* ddcli.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* ddcli.1 */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		55CCEA260C1381E500FA06C6 /* ddcli_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ddcli_main.m; sourceTree = "<group>"; };
 		55CCEA860C138BE900FA06C6 /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
 		55CCEB150C13963F00FA06C6 /* versions.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = versions.xcconfig; sourceTree = "<group>"; };
+		55E85D39175AE7670048DE9B /* dd_getopt_long-fbsd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "dd_getopt_long-fbsd.m"; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = example; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* ddcli.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ddcli.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +202,7 @@
 				55CCE46F0C11C58F00FA06C6 /* DDGetoptLongParser.m */,
 				55200F510C4A27FD00018A42 /* DDCliParseException.h */,
 				55200F520C4A27FD00018A42 /* DDCliParseException.m */,
+				55E85D39175AE7670048DE9B /* dd_getopt_long-fbsd.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				55CCE9350C137F8E00FA06C6 /* DDCliUtil.m in Sources */,
 				55CCE9370C137F8E00FA06C6 /* DDGetoptLongParser.m in Sources */,
 				55200F540C4A27FD00018A42 /* DDCliParseException.m in Sources */,
+				55E85D3A175AE7670048DE9B /* dd_getopt_long-fbsd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

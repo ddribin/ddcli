@@ -75,26 +75,24 @@ DDCliApplication * DDCliApp = nil;
     return [self name];
 }
 
-- (int)runWithClass:(Class)delegateClass;
+- (int)runWithDelegate:(id<DDCliApplicationDelegate>)delegate
+             arguments:(NSArray *)inputArguments
 {
-    NSObject<DDCliApplicationDelegate> * delegate = nil;
     int result = EXIT_SUCCESS;
     @try
     {
-        if (delegateClass == nil)
-            delegateClass = [self findFirstDelegateClass];
-        if (delegateClass == nil)
-        {
-            ddfprintf(stderr, @"%@: delegate class not found\n", self);
-            return EX_CONFIG;
-        }
-        
-        delegate = [[delegateClass alloc] init];
-
         DDGetoptLongParser * optionsParser =
             [DDGetoptLongParser optionsWithTarget: delegate];
         [delegate application: self willParseOptions: optionsParser];
-        NSArray * arguments = [optionsParser parseOptions];
+		NSArray* arguments;
+		if ( inputArguments == nil )
+		{
+			arguments = [optionsParser parseOptions];
+		}
+		else
+		{
+			arguments = [optionsParser parseOptionsWithArguments:inputArguments command:[[NSProcessInfo processInfo] processName]];
+		}
         if (arguments == nil)
         {
             return EX_USAGE;
@@ -113,16 +111,29 @@ DDCliApplication * DDCliApp = nil;
         ddfprintf(stderr, @"Caught: %@: %@\n", [e name], [e description]);
         result = EXIT_FAILURE;
     }
-    @finally
-    {
-        if (delegate != nil)
-        {
-            [delegate release];
-            delegate = nil;
-        }
-    }
     
     return result;
+}
+
+- (int)runWithClass:(Class)delegateClass
+{
+    id<DDCliApplicationDelegate> delegateInstance = nil;
+    @try {
+        if (delegateClass == nil)
+            delegateClass = [self findFirstDelegateClass];
+        if (delegateClass == nil)
+        {
+            ddfprintf(stderr, @"%@: delegate class not found\n", self);
+            return EX_CONFIG;
+        }
+        
+        delegateInstance = [[delegateClass alloc] init];
+        return [self runWithDelegate:delegateInstance arguments:nil];
+    }
+    @finally {
+        [delegateInstance release];
+    }
+    
 }
 
 - (Class)findFirstDelegateClass;

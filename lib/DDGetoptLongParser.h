@@ -22,9 +22,16 @@
  * SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import <getopt.h>
 #import <libgen.h>
+
+extern int
+dd_getopt_long(int nargc, char * const *nargv, const char *options,
+			   const struct option *long_options, int *idx);
+extern int
+dd_getopt_long_only(int nargc, char * const *nargv, const char *options,
+					const struct option *long_options, int *idx);
 
 /* Function pointer to getopt_long() or getopt_long_only() */
 typedef int (*DDGetoptFunction)(int, char * const *, const char *,
@@ -42,6 +49,8 @@ typedef enum DDGetoptArgumentOptions
     DDGetoptOptionalArgument = optional_argument,
     /** Option takes a mandatory argument */
     DDGetoptRequiredArgument = required_argument,
+	/** Option can be explicitly negated with --no-argname */
+	DDGetoptNoArgumentNegatable = 4,
 } DDGetoptArgumentOptions;
 
 /**

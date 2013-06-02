@@ -25,6 +25,13 @@
 #import "DDGetoptLongParser.h"
 #import "DDCliUtil.h"
 
+extern int
+dd_getopt_long(int nargc, char * const *nargv, const char *options,
+			   const struct option *long_options, int *idx);
+extern int
+dd_getopt_long_only(int nargc, char * const *nargv, const char *options,
+					const struct option *long_options, int *idx);
+
 
 @interface DDGetoptLongParser ()
 
@@ -62,7 +69,7 @@
     _optionString = [[NSMutableString alloc] init];
     [_optionString appendString: @":"];
     _optionInfoMap = [[NSMutableDictionary alloc] init];
-    _getoptFunction = getopt_long;
+    _getoptFunction = dd_getopt_long;
     
     return self;
 }
@@ -91,9 +98,9 @@
 - (void)setGetoptLongOnly:(BOOL)getoptLongOnly;
 {
     if (getoptLongOnly)
-        _getoptFunction = getopt_long_only;
+        _getoptFunction = dd_getopt_long_only;
     else
-        _getoptFunction = getopt_long;
+        _getoptFunction = dd_getopt_long;
 }
 
 - (void)addOptionsFromTable:(DDGetoptOption *)optionTable;
@@ -115,6 +122,13 @@
                   key:(NSString *)key
       argumentOptions:(DDGetoptArgumentOptions)argumentOptions;
 {
+	if ( argumentOptions == DDGetoptNoArgumentNegatable )
+	{
+		[self addLongOption:longOption shortOption:shortOption key:key argumentOptions:DDGetoptNoArgument];
+		NSString* noKey = [NSString stringWithFormat:@"no-%@",longOption];
+		[self addLongOption:noKey shortOption:shortOption key:noKey argumentOptions:DDGetoptNoArgument];
+		return;
+	}
     const char * utf8String = [longOption UTF8String];
     NSData * utf8Data = [NSData dataWithBytes: utf8String length: strlen(utf8String)];
     
@@ -171,7 +185,7 @@
                                command:(NSString *)command;
 {
     int argc = [arguments count];
-    char ** argv = alloca(sizeof(char *) * argc);
+    char ** argv = alloca(sizeof(char *) * ( argc + 1 ) );
     int i;
     for (i = 0; i < argc; i++)
     {
@@ -193,6 +207,10 @@
     opterr = 1;
     
     int longOptionIndex = -1;
+	/* reset the options parser because it is too stupid to be reset with just optreset */
+	optreset = 1;
+	opterr = 1;
+	optind = 1;
     while ((ch = _getoptFunction(argc, argv, optionString, options, &longOptionIndex)) != -1)
     {
         NSString * last_argv = [NSString stringWithUTF8String: argv[optind-1]];
@@ -218,15 +236,28 @@
         {
             NSString * key = [optionInfo objectAtIndex: 0];
             int argumentOptions = [[optionInfo objectAtIndex: 1] intValue];
-            if (argumentOptions == DDGetoptNoArgument)
-                [_target setValue: [NSNumber numberWithBool: YES] forKey: key];
+            if (argumentOptions == DDGetoptNoArgument) {
+				BOOL boolValue = YES;
+				if ([key hasPrefix:@"no-"]) {
+					boolValue = NO;
+					key = [key substringFromIndex:3];
+				}
+                [_target setValue: [NSNumber numberWithBool: boolValue] forKey: key];
+			}
             else
                 [_target setValue: nsoptarg forKey: key];
         }
     }
     
-    NSRange range = NSMakeRange(optind, argc - optind);
-    return [arguments subarrayWithRange: range];
+	if ( ( argc - optind ) >= 1 )
+	{
+		NSRange range = NSMakeRange(optind, argc - optind);
+		return [arguments subarrayWithRange: range];
+	}
+	else
+	{
+		return [NSArray array];
+	}
 }
 
 - (NSString *)optionToKey:(NSString *)option;

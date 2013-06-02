@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 @class DDCliApplication;
 @class DDGetoptLongParser;
@@ -102,6 +102,9 @@
  *   to search all classes for the delegate.
  */
 - (int)runWithClass:(Class)delegateClass;
+
+- (int) runWithDelegate:(id<DDCliApplicationDelegate>) delegateInstance
+			  arguments:(NSArray*) inputArguments;
 
 @end
 
