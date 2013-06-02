@@ -76,7 +76,7 @@ DDCliApplication * DDCliApp = nil;
 }
 
 - (int)runWithDelegate:(id<DDCliApplicationDelegate>)delegate
-             arguments:(NSArray *)inputArguments
+             arguments:(NSArray *)arguments
 {
     int result = EXIT_SUCCESS;
     @try
@@ -84,14 +84,13 @@ DDCliApplication * DDCliApp = nil;
         DDGetoptLongParser * optionsParser =
             [DDGetoptLongParser optionsWithTarget: delegate];
         [delegate application: self willParseOptions: optionsParser];
-		NSArray* arguments;
-		if ( inputArguments == nil )
+		if ( arguments == nil )
 		{
 			arguments = [optionsParser parseOptions];
 		}
 		else
 		{
-			arguments = [optionsParser parseOptionsWithArguments:inputArguments command:[[NSProcessInfo processInfo] processName]];
+			arguments = [optionsParser parseOptionsWithArguments:arguments command:[[NSProcessInfo processInfo] processName]];
 		}
         if (arguments == nil)
         {

@@ -100,11 +100,21 @@
  *
  * @param delegateClass The class of the delegate or <code>nil</code>
  *   to search all classes for the delegate.
+ * @return Result to be returned by <code>main</code>.
  */
 - (int)runWithClass:(Class)delegateClass;
 
-- (int) runWithDelegate:(id<DDCliApplicationDelegate>) delegateInstance
-			  arguments:(NSArray*) inputArguments;
+/**
+ * Runs a command line application with the specified delegate and
+ * arguments, and returns the result.  Exceptions are trapped, and an
+ * error message is printed.
+ *
+ * @param delegate The delegate.
+ * @param arguments Array of arguments.
+ * @return Result to be returned by <code>main</code>.
+ */
+- (int)runWithDelegate:(id<DDCliApplicationDelegate>)delegate
+             arguments:(NSArray *)arguments;
 
 @end
 
