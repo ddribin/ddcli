@@ -109,9 +109,9 @@ dd_getopt_long_only(int nargc, char * const *nargv, const char *options,
     while ((currentOption->longOption != nil) ||
            (currentOption->shortOption != 0))
     {
-        [self addLongOption: currentOption->longOption
+        [self addLongOption: [NSString stringWithUTF8String:currentOption->longOption]
                 shortOption: currentOption->shortOption
-                        key: [self optionToKey: currentOption->longOption]
+                        key: [self optionToKey: [NSString stringWithUTF8String:currentOption->longOption] ]
             argumentOptions: currentOption->argumentOptions];
         currentOption++;
     }
