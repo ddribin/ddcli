@@ -64,13 +64,13 @@
     DDGetoptOption optionTable[] = 
     {
         // Long         Short   Argument options
-        {@"foo",        'f',    DDGetoptRequiredArgument},
-        {@"include",    'I',    DDGetoptRequiredArgument},
-        {@"bar",        'b',    DDGetoptOptionalArgument},
-        {@"long-opt",   0,      DDGetoptNoArgument},
-        {@"verbose",    'v',    DDGetoptNoArgument},
-        {@"version",    0,      DDGetoptNoArgument},
-        {@"help",       'h',    DDGetoptNoArgument},
+        {"foo",         'f',    DDGetoptRequiredArgument},
+        {"include",     'I',    DDGetoptRequiredArgument},
+        {"bar",         'b',    DDGetoptOptionalArgument},
+        {"long-opt",    0,      DDGetoptNoArgument},
+        {"verbose",     'v',    DDGetoptNoArgument},
+        {"version",     0,      DDGetoptNoArgument},
+        {"help",        'h',    DDGetoptNoArgument},
         {nil,           0,      0},
     };
     [optionsParser addOptionsFromTable:optionTable];
